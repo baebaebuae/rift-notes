@@ -69,3 +69,13 @@ html[lang=en] .hero-content{max-width:78%}
 html[lang=en] .levelcontrol{white-space:nowrap}
 @media(max-width:1000px){.topnav{display:none}.topright{margin-left:auto}}
 @media(max-width:680px){.topbar{padding:0 12px;gap:8px}.topright{gap:7px}.topright .live-dot,#versionLabel{display:none}.language-toggle{font-size:12px;min-height:38px;padding:6px 9px}.brand small{display:none}.brand{font-size:16px}.mobile-button{flex-shrink:0}html[lang=en] .hero-content{max-width:85%}html[lang=en] .stat-sub{font-size:9px}.history-order{font-size:10px}}
+
+/* Current patch values stay separate from the dated formula archive. */
+.spell-current{margin:0 18px 16px;padding:15px 17px;border:1px solid #376b55;background:#18372b55;border-radius:7px;overflow-wrap:anywhere}
+.spell-current-heading{display:flex;justify-content:space-between;gap:12px;color:var(--green);font-size:12px}
+.spell-current-heading a{white-space:nowrap;text-decoration:underline}
+.current-change{margin-top:13px}.current-change small{color:#8ba998;font-size:11px}.current-change .formula-row{padding:3px 0 10px}.current-note{color:#9bb5a7;font-size:11px;line-height:1.8;margin:10px 0 0}
+.archive-details{border-top:1px solid var(--line)}.archive-details summary{padding:14px 20px;cursor:pointer;color:#c6ad85;font-size:12px}.archive-details summary:focus-visible{outline:2px solid var(--green);outline-offset:-3px}
+.spell-range{margin:0 20px 16px;padding-top:10px;border-top:1px solid var(--line)}
+@media(max-width:680px){.spell-current{margin:0 16px 14px;padding:13px}.archive-details summary{padding:13px 16px}.spell-range{margin:0 16px 16px}}
+.spell-data-note{margin:0 20px 16px;color:#e5c68e;font-size:12px;line-height:1.8;overflow-wrap:anywhere}

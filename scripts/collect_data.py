@@ -13,9 +13,9 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'dist/data'; OUT.mkdir(parents=True,exist_ok=True)
 CACHE=Path(os.environ.get('RIFT_CACHE','/workspace/scratch/rift-cache')); CACHE.mkdir(parents=True,exist_ok=True)
 FAIL=[]
-def fetch(url):
+def fetch(url, refresh=False):
  p=CACHE/(hashlib.sha256(url.encode()).hexdigest()+'.cache')
- if p.exists(): return p.read_bytes()
+ if p.exists() and not refresh: return p.read_bytes()
  err=p.with_suffix('.missing')
  if err.exists() and time.time()-err.stat().st_mtime<86400:raise RuntimeError('최근 수집 실패: '+err.read_text())
  for attempt in range(2):
@@ -29,10 +29,10 @@ def fetch(url):
    if attempt:raise
  raise RuntimeError(url)
 def write(p,obj):p.write_text(json.dumps(obj,ensure_ascii=False,separators=(',',':')))
-version=json.loads(fetch('https://ddragon.leagueoflegends.com/api/versions.json'))[0]
+version=json.loads(fetch('https://ddragon.leagueoflegends.com/api/versions.json', refresh=True))[0]
 base='https://ddragon.leagueoflegends.com/cdn/'+version
 index=json.loads(fetch(base+'/data/ko_KR/champion.json'))['data']
-try: archive=json.loads(fetch('https://cdn.merakianalytics.com/riot/lol/resources/latest/en-US/champions.json'))
+try: archive=json.loads(fetch('https://cdn.merakianalytics.com/riot/lol/resources/latest/en-US/champions.json', refresh=True))
 except Exception:archive={}
 names={}
 for k,c in index.items():
@@ -50,14 +50,14 @@ def slot(label):
 def kind(txt):
  if '⇒' not in txt and '→' not in txt:
   return 'fix' if re.search('버그|수정|bug|fix',txt,re.I) else 'adjust'
- a,b=re.split('⇒|→',txt,maxsplit=1)
+ a,b=re.split('⇒|→',re.sub(r'(?<=\d),(?=\d{3}(?:\D|$))','',txt),maxsplit=1)
  aa=[float(x) for x in re.findall(r'(?<!\d)-?\d+(?:\.\d+)?',a.split(':')[-1])]
  bb=[float(x) for x in re.findall(r'(?<!\d)-?\d+(?:\.\d+)?',b)]
  if not aa or len(aa)!=len(bb):return 'adjust'
  dirs={1 if y>x else -1 for x,y in zip(aa,bb) if x!=y}
  if len(dirs)!=1:return 'adjust'
  direction=next(iter(dirs))
- if re.search('재사용|소모|cooldown|cost|충전 시간',a,re.I):direction*=-1
+ if re.search('재사용|소모|cooldown|cost|충전 시간|영구적 추가 공격 속도',a,re.I):direction*=-1
  return 'buff' if direction>0 else 'nerf'
 def get_patch(pair):
  major,minor=pair;patch=f'{major}.{minor}'
@@ -66,7 +66,7 @@ def get_patch(pair):
  if major==25 and minor<3:slug=f'patch-25-s1-{minor}-notes'
  if major==25 and minor==3:slug='patch-2025-s1-3-notes'
  url='https://www.leagueoflegends.com/ko-kr/news/game-updates/'+slug+'/'
- try:html=fetch(url)
+ try:html=fetch(url, refresh=major==current_public and minor>=current_minor-1)
  except Exception as e:return {'patch':patch,'error':str(e),'url':url}
  s=BeautifulSoup(html,'html.parser')
  for script in s(['script','style','nav','footer']):script.decompose()
@@ -92,6 +92,7 @@ def get_patch(pair):
   for node in block.select('h2, h3, h4, li, div.attribute-change'):
    if node is h:started=True;continue
    if not started:continue
+   if node.name=='h2' and c=='XinZhao' and re.search('빌드 조정',node.get_text(' ',strip=True)):continue
    if node.name in ('h2','h3'):break
    if node.name=='h4':
     current=node.get_text(' ',strip=True)
@@ -157,8 +158,9 @@ def champion(k):
   for h in reversed(bychamp[k]):
    if tuple(map(int,h['patch'].split('.')))<=baseline:continue
    for ch in h['changes']:
-    if ch['slot']=='S' and re.search(r'공격력.*증가량|레벨당 공격력|성장 공격력|attack damage growth',ch['text'],re.I) and ('⇒' in ch['text'] or '→' in ch['text']):
-     after=re.split('⇒|→',ch['text'])[-1];match=re.search(r'\d+(?:\.\d+)?',after)
+    if ch['slot']=='S' and re.search(r'공격력.*증가량|레벨당 공격력|성장 공격력|attack damage growth|^공격력\s*:.*레벨당',ch['text'],re.I) and ('⇒' in ch['text'] or '→' in ch['text']):
+     after=re.split('⇒|→',ch['text'])[-1]
+     match=re.search(r'(?<=레벨당 )\d+(?:\.\d+)?',after) or re.search(r'\d+(?:\.\d+)?',after)
      if match:adgrowth=float(match[0]);growthSource=h['url'];growthPatch=h['patch']
   obj['attackDamageGrowth']={'value':adgrowth,'source':growthSource,'sourcePatch':growthPatch,'method':'보관본 및 이후 공식 능력치 변경 반영'}
   write(OUT/(k+'.json'),obj)
@@ -169,6 +171,7 @@ with ThreadPoolExecutor(max_workers=8) as pool:
  for i,c in enumerate(pool.map(champion,index),1):
   if c:summaries.append(c)
   if i%35==0:print('champions',i,'/',len(index),flush=True)
+if FAIL:raise RuntimeError('Champion collection incomplete; do not publish: '+json.dumps(FAIL,ensure_ascii=False))
 valid=[p for p in patches if p.get('events')]
 meta={'version':version,'patch':str(int(version.split('.')[0])+10)+'.'+version.split('.')[1],
  'collectedAt':datetime.now(timezone.utc).isoformat(),'championCount':len(summaries),'patchCount':len(valid),

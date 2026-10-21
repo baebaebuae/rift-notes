@@ -28,9 +28,9 @@ VERSION = KO_INDEX['meta']['version']
 BASE = 'https://ddragon.leagueoflegends.com/cdn/' + VERSION
 
 
-def fetch(url):
+def fetch(url, refresh=False):
     path = CACHE / (hashlib.sha256(url.encode()).hexdigest() + '.cache')
-    if path.exists():
+    if path.exists() and not refresh:
         return path.read_bytes()
     error = path.with_suffix('.missing')
     if error.exists() and time.time() - error.stat().st_mtime < 86400:
@@ -89,6 +89,7 @@ def slot(label):
 def kind(text):
     if not re.search('⇒|→', text):
         return 'fix' if re.search(r'\bbug|\bfix', text, re.I) else 'adjust'
+    text = re.sub(r'(?<=\d),(?=\d{3}(?:\D|$))', '', text)
     before, after = re.split('⇒|→', text, maxsplit=1)
     numbers = lambda value: [float(n) for n in re.findall(r'(?<!\d)-?\d+(?:\.\d+)?', value)]
     left, right = numbers(before.split(':')[-1]), numbers(after)
@@ -98,7 +99,7 @@ def kind(text):
     if len(directions) != 1:
         return 'adjust'
     direction = next(iter(directions))
-    if re.search(r'cooldown|cost|recharge time', before, re.I):
+    if re.search(r'cooldown|cost|recharge time|bonus attack speed from permanent sources', before, re.I):
         direction *= -1
     return 'buff' if direction > 0 else 'nerf'
 
@@ -129,7 +130,9 @@ def collect_patch(entry):
     patch = entry['patch']
     url = entry['url'].replace('/ko-kr/', '/en-us/')
     try:
-        soup = BeautifulSoup(fetch(url), 'html.parser')
+        current = patch_key(KO_INDEX['meta']['patch'])
+        recent = patch_key(patch)[0] == current[0] and patch_key(patch)[1] >= current[1] - 1
+        soup = BeautifulSoup(fetch(url, refresh=recent), 'html.parser')
     except Exception as exc:
         return {'patch': patch, 'url': url, 'error': str(exc)}
     for element in soup(['script', 'style', 'nav', 'footer']):
