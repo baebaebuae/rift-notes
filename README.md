@@ -52,6 +52,13 @@ python scripts/build_localization.py
 
 ## 검증
 
+검증 의존성은 고정된 lockfile로 설치할 수 있습니다.
+
+```bash
+npm ci --prefix .github/ci
+export RIFT_JSDOM="$PWD/.github/ci/node_modules/jsdom"
+```
+
 ```bash
 node --check dist/app.js
 # jsdom 설치 경로를 RIFT_JSDOM으로 전달하거나 Node가 모듈을 찾을 수 있도록 설치
@@ -64,7 +71,17 @@ RIFT_JSDOM=/absolute/path/to/jsdom node scripts/verify_latest_patch.cjs
 
 173명 전체의 양 언어 렌더링, 수치 동일성, 번역 누락, 검색·필터·능력치, 랜덤 시작과 공유 주소, 언어 선택 저장과 전환 상태, 뒤로/앞으로 가기, 한글 조합 입력, 모바일 검색, 네트워크 지연·실패·시간 초과를 DOM 기반으로 테스트합니다. 26.21 업데이트에서 실제 Chromium 미리보기로 최신 수치 카드, 보관본 구분 및 한영 전환을 확인했습니다. 모바일 동작은 DOM 테스트로 확인했습니다. 외부 스킬 아이콘/일부 챔피언 배경과 Google Fonts는 네트워크에 의존하며 시스템 폰트 대체를 제공합니다. 챔피언 목록 이미지와 기본 아리 배경은 배포 파일에 포함됩니다.
 
-## 구성
+## GitHub 자동 검증 및 웹 배포
+
+`.github/workflows/pages.yml`은 `main`에 코드를 반영하면 전체 데이터·DOM·한영 전환·미리보기·패치 검증을 실행하고, 모두 통과한 `dist`를 GitHub Pages에 배포합니다. PR에서는 검증만 실행하며, Actions 화면에서 수동으로 다시 실행할 수도 있습니다. 별도 서버나 배포용 API 키는 사용하지 않습니다.
+
+처음에는 저장소의 **Settings → Pages → Build and deployment → Source**를 **GitHub Actions**로 설정해야 합니다. 이 설정은 저장소 관리자 권한이 필요하며, 비공개 저장소는 계정의 GitHub Pages 지원 요금제를 확인해야 합니다. 저장소 공개 범위는 배포 워크플로가 변경하지 않습니다.
+
+배포 주소는 성공한 Actions 실행의 `github-pages` 환경 링크에서 확인합니다. 사용자 지정 도메인이 없다면 기본 주소는 `https://baebaebuae.github.io/rift-notes/`입니다. 기존 GPT Work의 시각화와는 별도의 웹사이트이며, 이 웹사이트는 이후 `main`의 검증된 변경을 자동 반영합니다.
+
+로컬에서 같은 배포 디렉터리를 확인하려면 `python -m http.server 8000 --directory dist`를 사용합니다. 배포 시 데이터 재수집은 실행하지 않습니다.
+
+## 파일 구성
 
 - `dist/index.html`, `dist/styles.css`, `dist/app.js`: 화면과 동작
 - `dist/data/*.json`: 한국어 데이터, 검토 수치 및 한국어 번역 사전

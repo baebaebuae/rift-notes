@@ -1,0 +1,7 @@
+{
+  "name": "rift-notes-ci",
+  "private": true,
+  "dependencies": {
+    "jsdom": "26.1.0"
+  }
+}
