@@ -32,25 +32,35 @@ function applyStaticLanguage(){
  for(const [id,ko,en]of [['mobileSearch','챔피언 검색 열기','Open champion search'],['closeSidebar','검색 닫기','Close search'],['sidebarOverlay','챔피언 검색 닫기','Close champion search'],['sourcesOpen','데이터 출처 및 기준 보기','View sources and data versions'],['sourcesClose','닫기','Close']])$('#'+id).setAttribute('aria-label',t(ko,en));
  $$('[data-home]').forEach(a=>a.setAttribute('aria-label',t('리프트 노트 홈','Rift Notes home')));
  $$('[data-role]').forEach(b=>b.textContent=b.dataset.role==='all'?t('전체','All'):b.dataset.role==='Marksman'?t('원딜','Marksman'):roleName(b.dataset.role));
- $('#languageToggle').textContent=t('English','한국어');$('#languageToggle').lang=t('en','ko');$('#languageToggle').setAttribute('aria-label',t('영어로 전환','Switch to Korean'));
+ $('#languageToggle').setAttribute('aria-checked',String(lang==='en'));$('#languageToggle').setAttribute('aria-label',t('영어 사용','Use English'));
  $('#versionLabel').textContent=meta?`${t('패치','PATCH')} ${meta.patch}`:t('데이터 불러오는 중','Loading data');
  if(index)$('#championCount').textContent=index.length;
 }
 function validChampion(id){return Boolean(index?.some(c=>c.id===id))}
 function randomChampion(exclude){const candidates=index.filter(c=>c.id!==exclude),list=candidates.length?candidates:index;return list[Math.floor(Math.random()*list.length)].id}
 function locationChampion(){const id=new URLSearchParams(location.search).get('champion');if(validChampion(id))return id;const legacy=location.hash.slice(1);return validChampion(legacy)?legacy:null}
-function rememberChampion(id){history.replaceState({...history.state,champion:id,lang},'',location.href)}
+function saveHistory(method,state,url=location.href){
+ // about:srcdoc and other embedded documents do not have a writable site URL.
+ const canChangeURL=/^https?:$/.test(location.protocol);
+ try{if(canChangeURL)history[method](state,'',url);else history[method](state,'');return canChangeURL}catch(error){
+  if(error.name!=='SecurityError')throw error;
+  // A host may also restrict history writes on an HTTP(S) page.
+  if(canChangeURL)try{history[method](state,'')}catch(fallbackError){if(fallbackError.name!=='SecurityError')throw fallbackError}
+  return false;
+ }
+}
+function rememberChampion(id){saveHistory('replaceState',{...history.state,champion:id,lang})}
 function setSidebar(open){$('#sidebar').classList.toggle('open',open);$('#mobileSearch').setAttribute('aria-expanded',String(open));$('#sidebarOverlay').hidden=!(open&&window.innerWidth<=680)}
 function syncSectionNav(){const section=location.hash==='#history'?'#history':'#overview';$$('.topnav a,.sectionnav a').forEach(a=>{if(!['#history','#overview'].includes(a.getAttribute('href')))return;const active=a.getAttribute('href')===section;a.classList.toggle(a.closest('.topnav')?'selected':'active',active);if(active)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')})}
 function scrollToSection(){if(['#history','#overview'].includes(location.hash))$(location.hash)?.scrollIntoView?.({block:'start'})}
 function matches(c,q){const n=norm(q);return !n||[c.name,c.id,c.englishName,c.koreanName,chosung(c.koreanName||c.name),...(c.aliases||[])].some(v=>norm(v).includes(n))}
 function renderList(){if(!index)return;const q=$('#search').value,list=index.filter(c=>matches(c,q)&&(role==='all'||c.tags.includes(role))).sort((a,b)=>a.name.localeCompare(b.name,lang));$('#resultCount').textContent=t(`${list.length}명`,`${list.length}`);$('#listLabel').textContent=q?t('검색 결과','Search results'):role==='all'?t('모든 챔피언','All champions'):roleName(role);$('#championList').innerHTML=list.length?list.map(c=>`<button class="champion-item ${c.id===chosen?'active':''}" data-champion="${esc(c.id)}" aria-label="${esc(t(c.name+' 상세 보기','View '+c.name))}" ${c.id===chosen?'aria-current="true"':''}><img src="${champIcon(c.id)}" alt="" loading="lazy" width="33" height="33"><span><span class="name">${esc(c.name)}</span><small>${esc(c.title)}</small></span></button>`).join(''):`<div class="list-empty">${t('검색 결과가 없어요.','No champions found.')}<br><small>${t('아리, Ahri, ㅇㄹ처럼 검색해 보세요.','Try Ahri, Lux, or a Korean name.')}</small></div>`}
-function updateURL(id){const url=new URL(location.href);url.searchParams.set('champion',id);if(lang==='en'||url.searchParams.has('lang'))url.searchParams.set('lang',lang);url.hash='';history[url.href===location.href?'replaceState':'pushState']({champion:id,lang},'',url)}
+function updateURL(id){const url=new URL(location.href);url.searchParams.set('champion',id);if(lang==='en'||url.searchParams.has('lang'))url.searchParams.set('lang',lang);url.hash='';const same=url.href===location.href||(history.state?.champion===id&&history.state?.lang===lang);saveHistory(same?'replaceState':'pushState',{champion:id,lang},url)}
 function setLocale(next){lang=next;index=indexes[lang].champions;meta=indexes[lang].meta;try{localStorage.setItem('rift-language',lang)}catch{}applyStaticLanguage()}
 async function changeLanguage(next){
  if(!index||next===lang)return;
  const savedScroll=window.scrollY;setLocale(next);
- const url=new URL(location.href);url.searchParams.set('lang',lang);url.searchParams.set('champion',chosen);history.replaceState({...history.state,champion:chosen,lang},'',url);
+ const url=new URL(location.href);url.searchParams.set('lang',lang);url.searchParams.set('champion',chosen);saveHistory('replaceState',{...history.state,champion:chosen,lang},url);
  $('#toast').classList.remove('visible');if($('#sourcesDialog').open)openSources();
  const request=requestId+1;await selectChampion(chosen,false,true);if(request===requestId)window.scrollTo({top:savedScroll,behavior:'instant'});
 }
@@ -97,7 +107,14 @@ function renderChampion(){
  renderStats();renderSpells();renderHistory();
  $('#level').oninput=e=>{level=+e.target.value;renderStats()};$('#yearFilter').onchange=e=>{year=e.target.value;limit=10;renderHistory()};
  $('#favorite').onclick=()=>{favorites.has(c.id)?favorites.delete(c.id):favorites.add(c.id);try{localStorage.setItem('rift-favorites',JSON.stringify([...favorites]))}catch{}const yes=favorites.has(c.id);$('#favorite').textContent=yes?'★':'☆';$('#favorite').setAttribute('aria-pressed',yes);$('#favorite').setAttribute('aria-label',yes?t('즐겨찾기 해제','Remove favorite'):t('즐겨찾기 저장','Save favorite'));toast(yes?t('이 브라우저에 즐겨찾기를 저장했어요.','Saved to favorites in this browser.'):t('즐겨찾기를 해제했어요.','Removed from favorites.'))};
- $('#share').onclick=async()=>{const url=new URL(location.href);url.searchParams.set('champion',c.id);url.searchParams.set('lang',lang);url.hash='';try{await navigator.clipboard.writeText(url.href);toast(t('챔피언 링크를 복사했어요.','Champion link copied.'))}catch{history.replaceState({...history.state,champion:c.id,lang},'',url);toast(t('주소창의 챔피언 링크를 복사해 주세요.','Copy the champion link from the address bar.'))}};
+ $('#share').onclick=async()=>{
+  if(!/^https?:$/.test(location.protocol)){toast(t('미리보기에서는 공유 링크를 만들 수 없어요. 사이트에서 다시 시도해 주세요.','Sharing is unavailable in this preview. Try again on the site.'));return}
+  const url=new URL(location.href);url.searchParams.set('champion',c.id);url.searchParams.set('lang',lang);url.hash='';
+  try{await navigator.clipboard.writeText(url.href);toast(t('챔피언 링크를 복사했어요.','Champion link copied.'))}catch{
+   const saved=saveHistory('replaceState',{...history.state,champion:c.id,lang},url);
+   toast(saved?t('주소창의 챔피언 링크를 복사해 주세요.','Copy the champion link from the address bar.'):t('링크를 복사하지 못했어요. 사이트에서 다시 시도해 주세요.','Could not copy the link. Try again on the site.'));
+  }
+ };
  $('.hero-art').onerror=e=>{e.target.style.display='none'};
 }
 function delta(text){const parts=text.split(/⇒|→/);if(parts.length!==2)return esc(text);const[a,b]=parts,i=a.indexOf(':');return `${i>=0?esc(a.slice(0,i+1))+' ':''}<span class="oldvalue">${esc(i>=0?a.slice(i+1):a)}</span><span class="arrow">→</span><span class="newvalue">${esc(b)}</span>`}
@@ -143,7 +160,7 @@ async function init(){
   if(url.searchParams.has('champion')&&!validChampion(url.searchParams.get('champion')))url.searchParams.delete('champion');
   if(url.searchParams.has('lang')&&!routeLanguage())url.searchParams.set('lang',lang);
   if(validChampion(url.hash.slice(1))){url.searchParams.set('champion',chosen);url.hash=''}
-  history.replaceState({...history.state,champion:chosen,lang},'',url);renderList();await selectChampion(chosen,false);
+  saveHistory('replaceState',{...history.state,champion:chosen,lang},url);renderList();await selectChampion(chosen,false);
  }catch{$('#main').setAttribute('aria-busy','false');$('#loading').innerHTML=`<div class="error-box" role="alert">${t('데이터를 불러오지 못했어요. 네트워크 연결을 확인해 주세요.','Could not load the data. Check your connection.')}<button id="retryInit">${t('다시 시도','Retry')}</button></div>`;$('#retryInit').onclick=()=>location.reload()}
 }
 applyStaticLanguage();$('#loading').innerHTML=`<span class="spinner" aria-hidden="true"></span>${t('챔피언 기록을 불러오고 있어요.','Loading champion records…')}`;init();

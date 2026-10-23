@@ -41,5 +41,19 @@ async function main(){
  // Late response from the other language cannot repaint the current locale.
  let release;const race=create({fetchOverride:(url,opts,read)=>url==='data/en/Ahri.json'?new Promise(resolve=>{release=()=>read(url).then(resolve)}):undefined});await race.ready('Ahri');race.$('#languageToggle').click();race.$('#languageToggle').click();await race.ready('Ahri');release();await pause();assert.equal(race.d.documentElement.lang,'ko');assert.equal(race.$('h1').textContent,'아리');race.close();
  console.log('PASS: language preference/deep links; preserved champion, level, skill, season, filter, search; localized share/dialog; mobile toggle; back/forward; language request races.');
+ // Inline previews cannot rewrite about:srcdoc URLs when the language changes.
+ const preview=create({url:'about:srcdoc',random:0,fetchOverride:url=>Promise.resolve({ok:true,json:async()=>data(url.replace(/^data\//,''))})});
+ await preview.ready(champions[0].id);preview.$('#languageToggle').click();
+ await until(()=>preview.d.documentElement.lang==='en'&&preview.$('h1')?.textContent===data('en/'+champions[0].id+'.json').name&&!preview.$('#content').hidden,'preview English switch');
+ assert.equal(preview.$('#languageToggle').getAttribute('aria-checked'),'true');assert.equal(preview.w.location.href,'about:srcdoc');assert.equal(preview.w.history.state.lang,'en');
+ await preview.select('Ahri');const previewLength=preview.w.history.length;await preview.select('Ahri');assert.equal(preview.w.history.length,previewLength);
+ await preview.select('Lux');preview.w.history.back();await preview.ready('Ahri');preview.w.history.forward();await preview.ready('Lux');
+ preview.$('#languageToggle').click();await until(()=>preview.$('h1')?.textContent==='럭스'&&!preview.$('#content').hidden,'preview Korean switch');
+ assert.equal(preview.$('#languageToggle').getAttribute('aria-checked'),'false');assert.equal(preview.w.history.state.lang,'ko');
+ preview.$('#share').click();await until(()=>preview.$('#toast').textContent.includes('미리보기'),'preview share feedback');assert.equal(preview.copied,'');
+ // Some hosts disable history writes entirely; the content must still switch.
+ for(const method of ['pushState','replaceState'])preview.w.history[method]=()=>{throw new preview.w.DOMException('History is unavailable','SecurityError')};
+ preview.$('#languageToggle').click();await until(()=>preview.$('h1')?.textContent==='Lux'&&!preview.$('#content').hidden,'history-disabled language switch');await preview.select('Ahri');
+ preview.close();console.log('PASS: embedded preview language/champion switching; state-only history; blocked history fallback; unsupported share feedback.');
 }
 main().catch(e=>{console.error(e);process.exitCode=1}).finally(closeAll);

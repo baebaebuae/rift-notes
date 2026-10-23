@@ -57,8 +57,13 @@
 }
 
 /* The language switch remains visible at compact widths. */
-.language-toggle{flex-shrink:0;border:1px solid #38544e;border-radius:7px;color:var(--green);background:#172821;padding:7px 10px;font-size:12px;font-weight:700;min-height:34px;white-space:nowrap}
-.language-toggle:hover{background:#234034;border-color:var(--green)}
+.language-toggle{position:relative;display:inline-grid;grid-template-columns:repeat(2,minmax(0,1fr));flex-shrink:0;width:140px;border:1px solid #38544e;border-radius:7px;color:var(--muted);background:#172821;padding:3px;font-size:12px;font-weight:700;min-height:36px;white-space:nowrap;user-select:none;transition:border-color .2s ease}
+.language-toggle::before{content:'';position:absolute;top:3px;bottom:3px;left:3px;width:calc((100% - 6px)/2);box-sizing:border-box;border:1px solid #356258;border-radius:4px;background:#234034;box-shadow:0 1px 3px #03081044;transition:transform .28s cubic-bezier(.22,.61,.36,1)}
+.language-toggle[aria-checked=true]::before{transform:translateX(100%)}
+.language-toggle span{position:relative;z-index:1;align-self:center;padding:3px 0;transition:color .2s ease}
+.language-toggle[aria-checked=false] [lang=ko],.language-toggle[aria-checked=true] [lang=en]{color:var(--green)}
+.language-toggle:hover{border-color:var(--green)}
+@media(prefers-reduced-motion:reduce){.language-toggle::before{transition:none}}
 .history-order{font-size:11px}
 html[lang=en] .topnav{gap:20px}
 html[lang=en] .rolefilters button{font-size:10px}
@@ -68,7 +73,8 @@ html[lang=en] .hero h1{font-size:clamp(27px,4.1vw,48px);overflow-wrap:anywhere}
 html[lang=en] .hero-content{max-width:78%}
 html[lang=en] .levelcontrol{white-space:nowrap}
 @media(max-width:1000px){.topnav{display:none}.topright{margin-left:auto}}
-@media(max-width:680px){.topbar{padding:0 12px;gap:8px}.topright{gap:7px}.topright .live-dot,#versionLabel{display:none}.language-toggle{font-size:12px;min-height:38px;padding:6px 9px}.brand small{display:none}.brand{font-size:16px}.mobile-button{flex-shrink:0}html[lang=en] .hero-content{max-width:85%}html[lang=en] .stat-sub{font-size:9px}.history-order{font-size:10px}}
+@media(max-width:680px){.topbar{padding:0 12px;gap:8px}.topright{gap:7px}.topright .live-dot,#versionLabel{display:none}.language-toggle{width:124px;font-size:12px;min-height:38px}.brand small{display:none}.brand{font-size:16px}.mobile-button{flex-shrink:0}html[lang=en] .hero-content{max-width:85%}html[lang=en] .stat-sub{font-size:9px}.history-order{font-size:10px}}
+@media(max-width:359px){.topbar{padding:0 8px;gap:6px}.topbar .brand{gap:6px;font-size:14px}.topbar .brand svg{width:20px}.topright{gap:4px}.language-toggle{width:116px;font-size:11px}}
 
 /* Current patch values stay separate from the dated formula archive. */
 .spell-current{margin:0 18px 16px;padding:15px 17px;border:1px solid #376b55;background:#18372b55;border-radius:7px;overflow-wrap:anywhere}
