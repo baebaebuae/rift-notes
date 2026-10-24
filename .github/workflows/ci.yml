@@ -1,0 +1,43 @@
+name: Validate RIFT NOTES
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: rift-notes-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      RIFT_JSDOM: ${{ github.workspace }}/.github/ci/node_modules/jsdom
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - name: Set up Node.js
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: .github/ci/package-lock.json
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - name: Install locked test dependencies
+        run: npm ci --prefix .github/ci --no-audit --no-fund
+      - name: Validate JavaScript and static data
+        run: |
+          node --check dist/app.js
+          python scripts/verify_data.py
+      - name: Validate the web application
+        run: bash scripts/verify_web.sh

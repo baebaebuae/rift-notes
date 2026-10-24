@@ -73,11 +73,25 @@ RIFT_JSDOM=/absolute/path/to/jsdom node scripts/verify_latest_patch.cjs
 
 ## GitHub 자동 검증 및 웹 배포
 
-`.github/workflows/pages.yml`은 `main`에 코드를 반영하면 전체 데이터·DOM·한영 전환·미리보기·패치 검증을 실행하고, 모두 통과한 `dist`를 GitHub Pages에 배포합니다. PR에서는 검증만 실행하며, Actions 화면에서 수동으로 다시 실행할 수도 있습니다. 별도 서버나 배포용 API 키는 사용하지 않습니다.
+이 저장소는 비공개 상태를 유지하며 **Vercel의 GitHub 연결**로 정적 웹사이트를 배포하도록 구성되어 있습니다. 현재 계정에서는 비공개 저장소의 GitHub Pages 사용이 지원되지 않아, Pages 배포 작업은 제거했습니다.
 
-처음에는 저장소의 **Settings → Pages → Build and deployment → Source**를 **GitHub Actions**로 설정해야 합니다. 이 설정은 저장소 관리자 권한이 필요하며, 비공개 저장소는 계정의 GitHub Pages 지원 요금제를 확인해야 합니다. 저장소 공개 범위는 배포 워크플로가 변경하지 않습니다.
+최초 연결은 저장소 소유자의 Vercel 계정에서 진행합니다.
 
-배포 주소는 성공한 Actions 실행의 `github-pages` 환경 링크에서 확인합니다. 사용자 지정 도메인이 없다면 기본 주소는 `https://baebaebuae.github.io/rift-notes/`입니다. 기존 GPT Work의 시각화와는 별도의 웹사이트이며, 이 웹사이트는 이후 `main`의 검증된 변경을 자동 반영합니다.
+1. [Vercel 새 프로젝트](https://vercel.com/new)에서 GitHub 계정을 연결합니다.
+2. `baebaebuae/rift-notes`를 선택해 **Import**합니다. 목록에 없다면 GitHub 연동에 이 저장소의 접근을 허용합니다.
+3. Root Directory는 저장소 루트(`./`)로 두고 **Deploy**합니다. `vercel.json`에 프레임워크(Other), 설치 명령, 검증 명령, 배포 폴더(`dist`)가 지정되어 있습니다.
+4. 배포가 성공하면 Vercel 프로젝트에서 실제 웹 주소와 Production Branch가 `main`인지 확인합니다.
+
+연결 이후에는 `main`에 코드를 반영할 때 Vercel이 자동으로 웹 검증을 실행하고, 성공한 `dist`만 배포합니다. PR에는 별도 미리보기를 생성할 수 있습니다. 실제 주소는 Vercel의 배포 결과에서 확인하며, 설정 파일을 추가하는 것만으로 계정 연결이나 첫 배포가 완료되지는 않습니다. 별도 서버나 저장소에 넣을 배포용 API 키는 필요하지 않습니다.
+
+`.github/workflows/ci.yml`은 `main` 반영과 PR에서 Python 데이터 검증 및 `scripts/verify_web.sh`의 DOM·한영 전환·미리보기·패치 검증을 실행합니다. Vercel도 같은 웹 검증 스크립트를 사용하며, 실패하면 해당 배포가 중단됩니다.
+
+Vercel의 설치·검증 단계를 로컬에서 재현하려면 다음 명령을 실행합니다.
+
+```bash
+npm ci --prefix .github/ci --no-audit --no-fund
+bash scripts/verify_web.sh
+```
 
 로컬에서 같은 배포 디렉터리를 확인하려면 `python -m http.server 8000 --directory dist`를 사용합니다. 배포 시 데이터 재수집은 실행하지 않습니다.
 
