@@ -33,4 +33,7 @@ for locale,hotfix in [('', '2026-01-12'),('en/', '2026-01-09')]:
  xayah=json.loads((folder/'Xayah.json').read_text());assert not any(h['patch']=='11.23' for h in xayah['history'])
  zed=json.loads((folder/'Zed.json').read_text());assert all(len(h['changes'])==1 for h in zed['history'] if h['patch']=='25.5')
  tryn=json.loads((folder/'Tryndamere.json').read_text());h=next(h for h in tryn['history'] if h['patch']=='26.1' and h['isHotfix']);assert h['date']==hotfix and len(h['changes'])==2
-print(f'PASS: {len(byid)} champions, {count} history entries, source URLs, ordering, game-mode separation, missing-growth correction, signed change classification, hotfix date, verified damage values.')
+from passive_localization import build_passives
+passives=build_passives(root.parent)
+assert passives==json.loads((root/'data/localization-ko.json').read_text())['passives'], 'Stale generated passive translations'
+print(f'PASS: {len(byid)} champions, {count} history entries, source URLs, ordering, game-mode separation, missing-growth correction, signed change classification, hotfix date, verified damage values, passive translation source/numbers.')

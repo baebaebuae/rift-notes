@@ -359,7 +359,6 @@ for c in json.loads((DATA/'index.json').read_text())['champions']:
 extraPath=ROOT/'scripts/locales/ko-exact.json'
 extra=json.loads(extraPath.read_text()) if extraPath.exists() else {}
 result={'labels':{s:extra.get('labels',{}).get(s,translate(s)) for s in sorted(labels)},'units':{s:extra.get('units',{}).get(s,unit(s)) for s in sorted(units)},'variants':extra.get('variants',{})}
-(ROOT/'dist/data/localization-ko.json').write_text(json.dumps(result,ensure_ascii=False,separators=(',',':')))
 remaining={k:{s:v for s,v in result[k].items() if re.search(r'[A-Za-z]{2,}',re.sub(r'\b(?:AP|AD)\b','',v))} for k in ['labels','units']}
 print(json.dumps(remaining,ensure_ascii=False,indent=2))
 print('Missing variants',json.dumps(sorted(variants-set(result['variants'])),ensure_ascii=False))
@@ -469,6 +468,9 @@ for c in json.loads((DATA/'index.json').read_text())['champions']:
     source=ch[field];translated=historyExact.get(source,historyPattern.sub(lambda m:historyTerms[m[0].lower()],source))
     if translated!=source:history[source]=translated
 result['history']=history
+from passive_localization import build_passives
+result['passives']=build_passives(ROOT)
+result['passiveNotes']=json.loads((ROOT/'scripts/locales/passives-notes.json').read_text())
 (ROOT/'dist/data/localization-ko.json').write_text(json.dumps(result,ensure_ascii=False,separators=(',',':')))
 assert not any(remaining.values()), 'Untranslated formula labels or units'
 assert not (variants-set(result['variants'])), 'Missing Korean variant names'

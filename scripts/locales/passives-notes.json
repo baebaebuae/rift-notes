@@ -1,0 +1,13 @@
+{
+  "Akshan": {"ko": "보관 원문에 치명타 계산식의 대체 표기가 함께 들어 있습니다. 적용 조건이 생략되어 있어 해당 식은 추가 확인이 필요합니다.", "en": "The archive includes alternative critical-strike formulas without fully explaining their conditions. Those expressions need further review."},
+  "Ashe": {"ko": "보관 원문에서 치명타 계수의 일부 적용 조건이 생략되어 있습니다. 해당 식은 추가 확인이 필요합니다.", "en": "The archived critical-strike expression omits some conditions. That expression needs further review."},
+  "Brand": {"ko": "보관 원문의 총 지속 피해량과 틱당 피해량이 서로 일치하지 않습니다. 아래에는 원문 표기를 보존했으며 해당 수치는 추가 확인이 필요합니다.", "en": "The archived total damage and per-tick damage do not agree. Both source expressions are retained below and need further review."},
+  "Caitlyn": {"ko": "보관 원문에서 치명타 계수의 일부 적용 조건이 생략되어 있습니다. 해당 식은 추가 확인이 필요합니다.", "en": "The archived critical-strike expression omits some conditions. That expression needs further review."},
+  "Galio": {"ko": "보관 원문에서 치명타 계수의 일부 적용 조건이 생략되어 있습니다. 해당 식은 추가 확인이 필요합니다.", "en": "The archived critical-strike expression omits some conditions. That expression needs further review."},
+  "Graves": {"ko": "보관 원문에서 치명타 계수의 일부 적용 조건이 생략되어 있습니다. 해당 식은 추가 확인이 필요합니다.", "en": "The archived critical-strike expression omits some conditions. That expression needs further review."},
+  "Gwen": {"ko": "보관 원문의 몬스터 대상 피해 상한 표기는 추가 확인이 필요합니다. 수치를 임의로 수정하지 않고 원문대로 표시합니다.", "en": "The archived monster damage cap needs further review. Its values are retained without estimation."},
+  "Ivern": {"ko": "보관 원문의 레벨별 체력·마나 비용 표기는 추가 확인이 필요합니다. 수치를 임의로 수정하지 않고 원문대로 표시합니다.", "en": "The archived level-dependent health and mana costs need further review. Their values are retained without estimation."},
+  "Jax": {"ko": "낚시 보상의 골드 단위는 원문에 빠져 있어 문맥에 따른 해석입니다. 해당 보상은 추가 확인이 필요합니다.", "en": "The gold unit for the fishing reward is absent from the archived text and inferred from context. That reward needs further review."},
+  "Nocturne": {"ko": "보관 원문에서 치명타 계수의 일부 적용 조건이 생략되어 있습니다. 해당 식은 추가 확인이 필요합니다.", "en": "The archived critical-strike expression omits some conditions. That expression needs further review."},
+  "Smolder": {"ko": "보관 원문에 일부 계수의 대체 표기가 함께 들어 있으나 적용 조건이 충분히 설명되지 않습니다. 해당 식은 추가 확인이 필요합니다.", "en": "The archive includes alternative scaling expressions without fully explaining their conditions. Those expressions need further review."}
+}

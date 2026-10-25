@@ -82,6 +82,17 @@ html[lang=en] .levelcontrol{white-space:nowrap}
 .spell-current-heading a{white-space:nowrap;text-decoration:underline}
 .current-change{margin-top:13px}.current-change small{color:#8ba998;font-size:11px}.current-change .formula-row{padding:3px 0 10px}.current-note{color:#9bb5a7;font-size:11px;line-height:1.8;margin:10px 0 0}
 .archive-details{border-top:1px solid var(--line)}.archive-details summary{padding:14px 20px;cursor:pointer;color:#c6ad85;font-size:12px}.archive-details summary:focus-visible{outline:2px solid var(--green);outline-offset:-3px}
+.passive-details{margin:0 20px 20px;padding:17px 19px;border:1px solid #34434f;border-radius:7px;background:#16212b;overflow-wrap:anywhere}
+.passive-details-heading{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.passive-details-heading h3{margin:0;font-size:14px;font-weight:700;color:var(--text)}
+.passive-details-heading a{font-size:11px;color:var(--muted);text-decoration:underline}
+.passive-baseline{margin:6px 0 15px;color:var(--amber);font-size:12px;line-height:1.7}
+.passive-source-note{border-left:2px solid var(--amber);padding-left:10px;color:#d5bc94;font-size:12px;line-height:1.8;margin:12px 0 16px}
+.passive-effect{font-size:15px;line-height:1.9;color:#c4d0da;margin:12px 0}
+.passive-effect strong{color:#e8edf2;font-weight:750;font-variant-numeric:tabular-nums}
+.passive-effect:last-child{margin-bottom:0}.passive-variant{display:block;color:var(--green);font-size:13px;margin-bottom:5px}
+.passive-more{margin-top:13px;border-top:1px solid var(--line)}.passive-more>summary{cursor:pointer;color:#9fdfcb;padding:12px 0 0;font-size:13px;min-height:40px}.passive-more>summary:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+@media(max-width:680px){.passive-details{margin:0 16px 16px;padding:14px}.passive-effect{font-size:14px}.passive-baseline{font-size:11px}.passive-more>summary{min-height:44px}}
 .spell-range{margin:0 20px 16px;padding-top:10px;border-top:1px solid var(--line)}
 @media(max-width:680px){.spell-current{margin:0 16px 14px;padding:13px}.archive-details summary{padding:13px 16px}.spell-range{margin:0 16px 16px}}
 .spell-data-note{margin:0 20px 16px;color:#e5c68e;font-size:12px;line-height:1.8;overflow-wrap:anywhere}

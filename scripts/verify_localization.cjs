@@ -16,14 +16,35 @@ async function main(){
   assert.deepEqual(b.stats,a.stats,champion.id+' numerical stats');assert.deepEqual(b.formulas,a.formulas,champion.id+' formula integrity');assert.equal(b.attackDamageGrowth.value,a.attackDamageGrowth.value);
   assert.equal(en.$$('.spell').length,5);assert(!/\b(?:undefined|NaN)\b|\{\{|%i:/.test(en.$('#content').textContent),champion.id+' unresolved English content');
   const englishBody=en.d.body.cloneNode(true);englishBody.querySelector('#languageToggle').remove();assert(!/[가-힣]/.test(englishBody.textContent),champion.id+' Korean leak into English');
-  for(const el of ko.$$('.spell-desc,.flabel,.formula-value,.spell-name')){
+  for(const el of ko.$$('.spell-desc,.flabel,.formula-value,.spell-name,.passive-effect,.passive-variant')){
    const text=el.textContent.replace(/\b(?:AP|AD|Q|W|E|R|P|H-28G|H-28Q|CH-2|CH-3X)\b/g,'');
    if(/[A-Za-z]{2,}/.test(text)||/%i:/.test(text))leftovers.push([champion.id,text]);
   }
   const tags=ko.$$('.stat-value').map(x=>x.textContent);assert.deepEqual(en.$$('.stat-value').map(x=>x.textContent),tags,champion.id+' displayed level1 stats');
+  // Prose-only passives were silently dropped when their table rows were empty.
+  const sourceEffects=a.formulas.filter(f=>f.slot==='P').flatMap(f=>f.variants.flatMap(v=>v.effects||[]));
+  const reviewed=data('verified.json')[champion.id];
+  const currentPassive=reviewed?.version===data('index.json').meta.version&&reviewed?.skills?.P;
+  const koEffects=ko.$$('.passive-effect'),enEffects=en.$$('.passive-effect');
+  assert.equal(koEffects.length,currentPassive?0:sourceEffects.length,champion.id+' all passive paragraphs available');
+  assert.equal(enEffects.length,koEffects.length,champion.id+' translated passive coverage');
+  if(koEffects.length){
+   const numbers=s=>(s.match(/\d+(?:\.\d+)?/g)||[]).sort();
+   for(let n=0;n<koEffects.length;n++)assert.deepEqual(numbers(koEffects[n].textContent),numbers(enEffects[n].textContent),champion.id+' passive numeric integrity '+n);
+   const passive=ko.$('.spell[data-skill="P"]');
+   assert(!passive.textContent.includes('세부 수치 미확보'),champion.id+' prose is data, not unavailable');
+   assert(passive.querySelector('.passive-baseline').textContent.includes('25.15'),champion.id+' archive not presented as current');
+  }
  }
  assert.deepEqual(leftovers,[],'Korean untranslated skill details');
+ await ko.select('MissFortune');
+ const fortune=ko.$('.spell[data-skill="P"]');
+ assert.match(fortune.textContent,/50%.*100%/);assert.match(fortune.textContent,/25%.*50%/);
+ assert.match(fortune.textContent,/총 공격력/);assert.match(fortune.textContent,/미니언/);
+ assert(!fortune.textContent.includes('현재 수집 자료에 상세 수치가 포함되어 있지 않습니다.'));
+ await ko.select('Aphelios');const more=ko.$('.passive-more');assert(more,'long passive has disclosure');more.open=true;assert(more.querySelectorAll('.passive-effect').length>0);
  ko.close();en.close();console.log('PASS: 173 champions in both languages; no unintended language in skills; identical base stats and formulas.');
+ console.log('PASS: all archived passive prose and numbers; Miss Fortune total AD/minion ratios; archive labels; long-passive disclosure.');
  const page=create({url:'https://rift.example/?champion=Ahri'});await page.ready('Ahri');
  page.$('[data-skill="Q"]').click();const lv=page.$('#level');lv.value=18;lv.dispatchEvent(new page.w.Event('input'));
  page.$('[data-filter="nerf"]').click();const years=page.$('#yearFilter');years.value='26';years.dispatchEvent(new page.w.Event('change'));
