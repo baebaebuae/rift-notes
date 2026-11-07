@@ -1,0 +1,1653 @@
+{
+  "AurelionSol": {
+    "E": {
+      "drop": [
+        "Total Magic Damage",
+        "Magic Damage per Tick"
+      ],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "총 마법 피해량",
+            "en": "Total Magic Damage"
+          },
+          "value": {
+            "ko": "5초간 50 / 80 / 110 / 140 / 170 + 주문력의 60 / 65 / 70 / 75 / 80%",
+            "en": "50 / 80 / 110 / 140 / 170 + 60 / 65 / 70 / 75 / 80% AP over 5 seconds"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "1회당 마법 피해량",
+            "en": "Magic Damage per Tick"
+          },
+          "value": {
+            "ko": "2.5 / 4 / 5.5 / 7 / 8.5 + 주문력의 3 / 3.25 / 3.5 / 3.75 / 4%",
+            "en": "2.5 / 4 / 5.5 / 7 / 8.5 + 3 / 3.25 / 3.5 / 3.75 / 4% AP"
+          },
+          "provenance": "derived",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        }
+      ],
+      "status": "reconciled"
+    }
+  },
+  "Corki": {
+    "R": {
+      "drop": [
+        "Physical Damage",
+        "Big One Physical Damage"
+      ],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "물리 피해량",
+            "en": "Physical Damage"
+          },
+          "value": {
+            "ko": "100 / 190 / 280 + 추가 공격력의 90%",
+            "en": "100 / 190 / 280 + 90% bonus AD"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "거대한 미사일 물리 피해량",
+            "en": "Big One Physical Damage"
+          },
+          "value": {
+            "ko": "200 / 380 / 560 + 추가 공격력의 180%",
+            "en": "200 / 380 / 560 + 180% bonus AD"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        }
+      ],
+      "status": "reconciled"
+    }
+  },
+  "Kayle": {
+    "Q": {
+      "drop": [],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "재사용 대기시간",
+            "en": "Cooldown"
+          },
+          "value": {
+            "ko": "10 / 9.5 / 9 / 8.5 / 8초",
+            "en": "10 / 9.5 / 9 / 8.5 / 8 seconds"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        }
+      ],
+      "status": "reconciled"
+    },
+    "R": {
+      "drop": [],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "재사용 대기시간",
+            "en": "Cooldown"
+          },
+          "value": {
+            "ko": "140 / 110 / 80초",
+            "en": "140 / 110 / 80 seconds"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        }
+      ],
+      "status": "reconciled"
+    }
+  },
+  "Locke": {
+    "Q": {
+      "drop": [
+        "Mark base bonus damage"
+      ],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "표식 중첩 추가 피해량",
+            "en": "Mark base bonus damage"
+          },
+          "value": {
+            "ko": "15 / 22 / 29 / 36 / 43",
+            "en": "15 / 22 / 29 / 36 / 43"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "최대 중첩 피해량",
+            "en": "Maximum stack damage"
+          },
+          "value": {
+            "ko": "63 / 92.4 / 121.8 / 151.2 / 180.6",
+            "en": "63 / 92.4 / 121.8 / 151.2 / 180.6"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        }
+      ],
+      "status": "partial"
+    },
+    "W": {
+      "drop": [],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "지속시간",
+            "en": "Duration"
+          },
+          "value": {
+            "ko": "5초",
+            "en": "5 seconds"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        }
+      ],
+      "status": "partial"
+    }
+  },
+  "Maokai": {
+    "Q": {
+      "drop": [
+        "Magic Damage",
+        "Total Monster Damage"
+      ],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "마법 피해량",
+            "en": "Magic Damage"
+          },
+          "value": {
+            "ko": "75 / 120 / 165 / 210 / 255 + 대상 최대 체력의 2.5 / 3 / 3.5 / 4 / 4.5% + 주문력의 50%",
+            "en": "75 / 120 / 165 / 210 / 255 + 2.5 / 3 / 3.5 / 4 / 4.5% of target's maximum health + 50% AP"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "총 몬스터 피해량",
+            "en": "Total Monster Damage"
+          },
+          "value": {
+            "ko": "225 / 280 / 335 / 390 / 445 + 대상 최대 체력의 2.5 / 3 / 3.5 / 4 / 4.5% + 주문력의 50%",
+            "en": "225 / 280 / 335 / 390 / 445 + 2.5 / 3 / 3.5 / 4 / 4.5% of target's maximum health + 50% AP"
+          },
+          "provenance": "derived",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        }
+      ],
+      "status": "reconciled"
+    }
+  },
+  "Naafiri": {
+    "Q": {
+      "drop": [
+        "Heal"
+      ],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "회복량",
+            "en": "Heal"
+          },
+          "value": {
+            "ko": "55 / 70 / 85 / 100 / 115 + 추가 공격력의 45%",
+            "en": "55 / 70 / 85 / 100 / 115 + 45% bonus AD"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        }
+      ],
+      "status": "reconciled"
+    },
+    "W": {
+      "drop": [],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "추가 공격력",
+            "en": "Bonus attack damage"
+          },
+          "value": {
+            "ko": "22%",
+            "en": "22%"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        }
+      ],
+      "status": "reconciled"
+    }
+  },
+  "Rumble": {
+    "R": {
+      "drop": [
+        "Magic Damage Per Tick",
+        "Maximum Magic Damage"
+      ],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "초당 마법 피해량",
+            "en": "Magic damage per second"
+          },
+          "value": {
+            "ko": "120 / 200 / 280 + 주문력의 40%",
+            "en": "120 / 200 / 280 + 40% AP"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "1회당 마법 피해량",
+            "en": "Magic Damage Per Tick"
+          },
+          "value": {
+            "ko": "30 / 50 / 70 + 주문력의 10%",
+            "en": "30 / 50 / 70 + 10% AP"
+          },
+          "provenance": "derived",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "최대 마법 피해량",
+            "en": "Maximum Magic Damage"
+          },
+          "value": {
+            "ko": "600 / 1000 / 1400 + 주문력의 200%",
+            "en": "600 / 1000 / 1400 + 200% AP"
+          },
+          "provenance": "derived",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        }
+      ],
+      "status": "partial"
+    }
+  },
+  "Shen": {
+    "Q": {
+      "drop": [
+        "Maximum Monster Damage"
+      ],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "몬스터 대상 최대 피해량",
+            "en": "Maximum Monster Damage"
+          },
+          "value": {
+            "ko": "120 / 140 / 160 / 180 / 200",
+            "en": "120 / 140 / 160 / 180 / 200"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        }
+      ],
+      "status": "reconciled"
+    }
+  },
+  "Smolder": {
+    "W": {
+      "drop": [
+        "Explosion Physical Damage",
+        "Total Physical Damage On Champion Hit"
+      ],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "폭발 물리 피해량",
+            "en": "Explosion Physical Damage"
+          },
+          "value": {
+            "ko": "25 / 50 / 75 / 100 / 125 + 추가 공격력의 50% + 주문력의 80%",
+            "en": "25 / 50 / 75 / 100 / 125 + 50% bonus AD + 80% AP"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "챔피언 적중 시 총 물리 피해량",
+            "en": "Total Physical Damage On Champion Hit"
+          },
+          "value": {
+            "ko": "85 / 120 / 155 / 190 / 225 + 추가 공격력의 110% + 주문력의 80%",
+            "en": "85 / 120 / 155 / 190 / 225 + 110% bonus AD + 80% AP"
+          },
+          "provenance": "derived",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        }
+      ],
+      "status": "reconciled"
+    }
+  },
+  "Thresh": {
+    "R": {
+      "drop": [
+        "Magic Damage"
+      ],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "마법 피해량",
+            "en": "Magic Damage"
+          },
+          "value": {
+            "ko": "200 / 350 / 500 + 주문력의 100%",
+            "en": "200 / 350 / 500 + 100% AP"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        }
+      ],
+      "status": "reconciled"
+    }
+  },
+  "Viktor": {
+    "R": {
+      "drop": [
+        "Magic Damage",
+        "Total Magic Damage"
+      ],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "최초 마법 피해량",
+            "en": "Magic Damage"
+          },
+          "value": {
+            "ko": "100 / 175 / 250 + 주문력의 60%",
+            "en": "100 / 175 / 250 + 60% AP"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "총 마법 피해량",
+            "en": "Total Magic Damage"
+          },
+          "value": {
+            "ko": "490 / 805 / 1120 + 주문력의 270%",
+            "en": "490 / 805 / 1120 + 270% AP"
+          },
+          "provenance": "derived",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        }
+      ],
+      "status": "reconciled"
+    }
+  },
+  "Yasuo": {
+    "Q": {
+      "drop": [
+        "Physical Damage"
+      ],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "물리 피해량",
+            "en": "Physical Damage"
+          },
+          "value": {
+            "ko": "20 / 45 / 70 / 95 / 120 + 총 공격력의 100%",
+            "en": "20 / 45 / 70 / 95 / 120 + 100% total AD"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        }
+      ],
+      "status": "reconciled"
+    }
+  },
+  "Zaahen": {
+    "Q": {
+      "drop": [
+        "Cooldown (25.24)"
+      ],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "재사용 대기시간",
+            "en": "Cooldown"
+          },
+          "value": {
+            "ko": "8 / 7.5 / 7 / 6.5 / 6초",
+            "en": "8 / 7.5 / 7 / 6.5 / 6 seconds"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        }
+      ],
+      "status": "partial"
+    }
+  },
+  "Mel": {
+    "P": {
+      "drop": [],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "추가 투사체 1개당 마법 피해",
+            "en": "Magic damage per bonus bolt"
+          },
+          "value": {
+            "ko": "4~30 (챔피언 레벨에 따라) + 주문력의 4%",
+            "en": "4–30 (by champion level) + 4% AP"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "미니언 대상 압도 첫 중첩",
+            "en": "First Overwhelm stack against minions"
+          },
+          "value": {
+            "ko": "첫 중첩 피해 45% 감소",
+            "en": "45% less first-stack damage"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        }
+      ],
+      "effects": {
+        "ko": [
+          "피해를 입히는 기본 공격과 스킬은 적에게 압도를 중첩합니다. 압도는 5초간 지속되며 다시 적중하면 시간이 갱신됩니다. 중첩 수에는 제한이 없습니다.",
+          "첫 중첩에 저장되는 마법 피해는 R 랭크(0~3)에 따라 50 / 60 / 70 / 80 + 주문력의 10%입니다. 중첩마다 2 / 3 / 4 / 5 + 주문력의 0.75%를 추가합니다. 피해 감소 적용 후 저장된 피해가 대상의 남은 체력과 보호막을 초과하면 다음 중첩이 저장된 피해를 입힙니다.",
+          "스킬을 사용하면 다음 기본 공격에 추가 투사체가 3개 생깁니다. 투사체는 최대 9개까지 준비할 수 있고, 5초 안에 스킬을 다시 쓰면 지속시간이 갱신됩니다."
+        ],
+        "en": [
+          "Damaging attacks and abilities apply Overwhelm for 5 seconds. New applications refresh its duration, and there is no stack limit.",
+          "The first stack stores 50 / 60 / 70 / 80 + 10% AP magic damage at R ranks 0–3. Each stack adds 2 / 3 / 4 / 5 + 0.75% AP. When stored damage after mitigation exceeds the target’s remaining health and shields, applying another stack consumes the stacks to deal that damage.",
+          "Each spell cast loads 3 additional bolts for the next basic attack, up to 9. Casting again refreshes their 5-second duration."
+        ]
+      }
+    },
+    "Q": {
+      "drop": [
+        "Initial explosion damage",
+        "Subsequent explosion damage",
+        "Mana cost",
+        "Missile speed"
+      ],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "첫 적중 피해량",
+            "en": "First-hit damage"
+          },
+          "value": {
+            "ko": "60 + 주문력의 25%",
+            "en": "60 + 25% AP"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "후속 적중당 피해량",
+            "en": "Damage per subsequent hit"
+          },
+          "value": {
+            "ko": "5 / 10 / 15 / 20 / 25 + 주문력의 8%",
+            "en": "5 / 10 / 15 / 20 / 25 + 8% AP"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "모두 적중 시 총 피해량",
+            "en": "Total damage if all bolts hit"
+          },
+          "value": {
+            "ko": "85~285 + 주문력의 65~97% (스킬 랭크에 따라)",
+            "en": "85–285 + 65–97% AP (by ability rank)"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "챔피언 적중 시 재사용 대기시간 반환",
+            "en": "Cooldown refunded on a champion hit"
+          },
+          "value": {
+            "ko": "적 챔피언에게 1회 이상 적중 시 0.5~1초 (챔피언 레벨에 따라)",
+            "en": "0.5–1 second (by champion level) if at least one bolt hits an enemy champion"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "마나 소모량",
+            "en": "Mana cost"
+          },
+          "value": {
+            "ko": "60 / 65 / 70 / 75 / 80",
+            "en": "60 / 65 / 70 / 75 / 80"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "투사체 속도",
+            "en": "Missile speed"
+          },
+          "value": {
+            "ko": "3,200",
+            "en": "3,200"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        }
+      ],
+      "status": "reconciled",
+      "notes": {
+        "ko": "",
+        "en": ""
+      }
+    },
+    "W": {
+      "drop": [
+        "Replicated Projectile Damage Modifier",
+        "Shield",
+        "Bonus movement speed",
+        "Damage immunity",
+        "Reflected physical damage",
+        "Area attacks with per-target projectiles",
+        "Cooldown"
+      ],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "파장 반경 · 확장 시간",
+            "en": "Nova radius and expansion time"
+          },
+          "value": {
+            "ko": "0.75초에 걸쳐 반경 400까지 확장",
+            "en": "Expands to a radius of 400 units over 0.75 seconds"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "첫 반격 피해량",
+            "en": "First retaliation damage"
+          },
+          "value": {
+            "ko": "35 / 40 / 45 / 50 / 55 + 주문력의 10%",
+            "en": "35 / 40 / 45 / 50 / 55 + 10% AP"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "같은 적 대상 후속 반격 피해량",
+            "en": "Subsequent retaliation against the same enemy"
+          },
+          "value": {
+            "ko": "5 / 10 / 15 / 20 / 25 + 주문력의 5%",
+            "en": "5 / 10 / 15 / 20 / 25 + 5% AP"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "대상당 최대 반격",
+            "en": "Maximum retaliations per enemy"
+          },
+          "value": {
+            "ko": "7회 · 총 65~205 + 주문력의 40%",
+            "en": "7 hits, dealing a total of 65–205 + 40% AP"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "멜·아군 보호막",
+            "en": "Shield for Mel and allies"
+          },
+          "value": {
+            "ko": "80 / 110 / 140 / 170 / 200 + 주문력의 70% · 2초",
+            "en": "80 / 110 / 140 / 170 / 200 + 70% AP for 2 seconds"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "멜·아군 추가 이동 속도",
+            "en": "Bonus movement speed for Mel and allies"
+          },
+          "value": {
+            "ko": "챔피언 레벨에 따라 10~30% · 2초",
+            "en": "10–30% (by champion level) for 2 seconds"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "마나 소모량",
+            "en": "Mana cost"
+          },
+          "value": {
+            "ko": "100 / 80 / 60 / 40 / 0",
+            "en": "100 / 80 / 60 / 40 / 0"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "재사용 대기시간",
+            "en": "Cooldown"
+          },
+          "value": {
+            "ko": "30 / 28.5 / 27 / 25.5 / 24초",
+            "en": "30 / 28.5 / 27 / 25.5 / 24 seconds"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        }
+      ]
+    },
+    "E": {
+      "drop": [
+        "Orb Root Duration",
+        "Mana cost"
+      ],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "거리별 속박 지속시간",
+            "en": "Root duration by distance"
+          },
+          "value": {
+            "ko": "[0.8~1.6] / [0.85~1.75] / [0.9~1.9] / [0.95~2.05] / [1.0~2.2]초 · 먼 대상일수록 증가",
+            "en": "[0.8–1.6] / [0.85–1.75] / [0.9–1.9] / [0.95–2.05] / [1.0–2.2] seconds, increasing with distance"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "둔화율",
+            "en": "Slow"
+          },
+          "value": {
+            "ko": "20 / 25 / 30 / 35 / 40%",
+            "en": "20 / 25 / 30 / 35 / 40%"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "마나 소모량",
+            "en": "Mana cost"
+          },
+          "value": {
+            "ko": "40 / 50 / 60 / 70 / 80",
+            "en": "40 / 50 / 60 / 70 / 80"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        }
+      ],
+      "minionLabel": {
+        "ko": "장판의 미니언 대상 초당 피해",
+        "en": "Field Minion Magic Damage per Second"
+      }
+    },
+    "R": {
+      "drop": [],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "재사용 대기시간",
+            "en": "Cooldown"
+          },
+          "value": {
+            "ko": "120 / 90 / 60초",
+            "en": "120 / 90 / 60 seconds"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.22",
+              "date": "2026-11-03",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "Shyvana": {
+    "P": {
+      "drop": [],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "대형 몬스터·공성 미니언 처치 관여",
+            "en": "Large monster or siege minion takedown"
+          },
+          "value": {
+            "ko": "1중첩",
+            "en": "1 stack"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.6",
+              "date": "2026-03-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-6-notes/#patch-shyvana-update"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "챔피언·에픽 몬스터 처치 관여",
+            "en": "Champion or epic monster takedown"
+          },
+          "value": {
+            "ko": "3중첩",
+            "en": "3 stacks"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.6",
+              "date": "2026-03-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-6-notes/#patch-shyvana-update"
+            }
+          ]
+        }
+      ],
+      "notes": {
+        "ko": "26.6 개편 문서의 획득 조건과 같은 패치의 추가 하향을 함께 반영했습니다.",
+        "en": "Stack awards come from the 26.6 rework and the resistance per stack from its mid-patch update."
+      },
+      "status": "reconciled"
+    },
+    "Q": {
+      "drop": [],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "재사용 가능 시간",
+            "en": "Recast window"
+          },
+          "value": {
+            "ko": "4초 · 용 형상에서는 추가로 1회 재사용",
+            "en": "4s; one extra recast in dragon form"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.6",
+              "date": "2026-03-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-6-notes/#patch-shyvana-update"
+            }
+          ]
+        }
+      ],
+      "notes": {
+        "ko": "용 형상의 마지막 공격은 고정 피해입니다. 26.9는 광역 공격의 주문력 계수만 명시해 마지막 공격의 현재 계수는 표시하지 않습니다.",
+        "en": "The final dragon-form attack deals true damage. Patch 26.9 specifies the area-hit AP ratio, leaving the current final-hit ratio unconfirmed."
+      }
+    },
+    "W": {
+      "drop": [],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "보호막 지속시간",
+            "en": "Shield duration"
+          },
+          "value": {
+            "ko": "2.5초",
+            "en": "2.5s"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.6",
+              "date": "2026-03-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-6-notes/#patch-shyvana-update"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "이동 속도 증가",
+            "en": "Bonus movement speed"
+          },
+          "value": {
+            "ko": "25% · 적 챔피언 쪽으로 이동 시 약 44%",
+            "en": "25%; about 44% toward enemy champions"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.6",
+              "date": "2026-03-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-6-notes/#patch-shyvana-update"
+            }
+          ]
+        }
+      ],
+      "notes": {
+        "ko": "26.9와 26.10에서 기본 보호막이 바뀌었습니다. 주변 적 챔피언당 추가 보호막의 현재 수치는 문서에 다시 나오지 않습니다.",
+        "en": "The base shield changed in 26.9 and 26.10. The current per-enemy shield increment is not restated there."
+      }
+    },
+    "E": {
+      "drop": [],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "둔화 지속시간",
+            "en": "Slow duration"
+          },
+          "value": {
+            "ko": "2초",
+            "en": "2s"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.6",
+              "date": "2026-03-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-6-notes/#patch-shyvana-update"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "용 형상 화염 흔적 지속시간",
+            "en": "Dragon-form trail duration"
+          },
+          "value": {
+            "ko": "2초",
+            "en": "2s"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.6",
+              "date": "2026-03-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-6-notes/#patch-shyvana-update"
+            }
+          ]
+        }
+      ],
+      "notes": {
+        "ko": "26.9에서 화염구 피해와 후속 폭발 배율이 변경되었습니다. 용 형상의 폭발·지면 피해 전체 식은 최근 문서에서 확인되지 않습니다.",
+        "en": "Patch 26.9 revises fireball damage and subsequent explosions. The full current dragon-form pulse and trail formulas are not restated."
+      }
+    },
+    "R": {
+      "drop": [],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "변신에 필요한 분노",
+            "en": "Fury required"
+          },
+          "value": {
+            "ko": "100",
+            "en": "100"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.6",
+              "date": "2026-03-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-6-notes/#patch-shyvana-update"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "공격·스킬 적중당 분노",
+            "en": "Fury per attack or ability hit"
+          },
+          "value": {
+            "ko": "기본 1.25 · 용 형상에서 200% 증가 · 챔피언이 아닌 대상에게 광역 적중 시 75% 감소",
+            "en": "1.25 base; +200% in dragon form; −75% on area hits against non-champions"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.6",
+              "date": "2026-03-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-6-notes/#patch-shyvana-update"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "돌진 마법 피해량",
+            "en": "Flight magic damage"
+          },
+          "value": {
+            "ko": "150~350 + 주문력의 100%",
+            "en": "150–350 + 100% AP"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.6",
+              "date": "2026-03-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-6-notes/#patch-shyvana-update"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "변신 중 추가 체력",
+            "en": "Bonus health in dragon form"
+          },
+          "value": {
+            "ko": "150~350",
+            "en": "150–350"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.6",
+              "date": "2026-03-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-6-notes/#patch-shyvana-update"
+            }
+          ]
+        }
+      ],
+      "notes": {
+        "ko": "26.6 개편 및 추가 패치 기준입니다. 추가 사거리와 지속 분노 소모량의 정확한 수치는 당시 패치 노트에 없습니다.",
+        "en": "Includes the 26.6 rework and its hotfix. The release notes do not quantify bonus range or continuous fury drain."
+      }
+    }
+  },
+  "Elise": {
+    "Q": {
+      "drop": [],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "신경독 · 몬스터 대상 최대 피해",
+            "en": "Neurotoxin · Maximum damage to monsters"
+          },
+          "value": {
+            "ko": "105 / 155 / 205 / 255 / 305 + 주문력의 90%",
+            "en": "105 / 155 / 205 / 255 / 305 + 90% AP"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.1",
+              "date": "2026-01-07",
+              "url": "https://www.leagueoflegends.com/ko-kr/news/game-updates/patch-26-1-notes/#patch-elise"
+            }
+          ]
+        }
+      ],
+      "notes": {
+        "ko": "한국어 26.1에서 인간 형상의 최대 피해 다섯 값을 확인했습니다. 거미 형상의 최대 피해는 따로 명시되지 않았습니다.",
+        "en": "The Korean 26.1 notes list all five maximum damage values, matching human Q base plus the monster cap. The spider-form maximum is not separately specified."
+      }
+    }
+  },
+  "Karma": {
+    "R": {
+      "drop": [],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "고무 강화 · 대상 및 주변 아군 추가 보호막",
+            "en": "Mantra E · Extra shield for primary and nearby allies"
+          },
+          "value": {
+            "ko": "45 / 85 / 125 / 165 + 주문력의 45%",
+            "en": "45 / 85 / 125 / 165 + 45% AP"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.7",
+              "date": "2026-03-31",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-7-notes/"
+            }
+          ]
+        }
+      ],
+      "notes": {
+        "ko": "강화 Q·W·E의 상세 피해량과 효과는 각 기본 스킬에도 표시합니다.",
+        "en": "Further empowered Q, W and E damage and effects appear under the corresponding basic abilities."
+      },
+      "effects": {
+        "ko": [
+          "8초 안에 사용하는 다음 기본 스킬을 강화합니다. Q는 적에게 추가 피해를 주고 폭발하는 둔화 지대를 남깁니다. W는 연결 시작과 종료 시 잃은 체력의 일부를 회복하고 속박을 연장합니다. E는 대상의 보호막을 강화하고 주변 아군에게 보호막과 이동 속도를 부여합니다."
+        ],
+        "en": [
+          "The next basic ability cast within 8 seconds is empowered. Q adds damage and a slowing field that explodes. W heals Karma at each end of the tether and extends its root. E increases the target’s shield and grants nearby allies a shield and movement speed."
+        ]
+      },
+      "tooltipSource": true
+    }
+  },
+  "Ivern": {
+    "P": {
+      "drop": [],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "수풀 체력 소모 · 12.22 공개값",
+            "en": "Grove health cost · published in 12.22"
+          },
+          "value": {
+            "ko": "1~18레벨 98~0 (당시 공식 기재값)",
+            "en": "98–0 at levels 1–18 (published values)"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "12.22",
+              "date": "2022-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-22-notes/#patch-ivern"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "수풀 마나 소모 · 12.22 공개값",
+            "en": "Grove mana cost · published in 12.22"
+          },
+          "value": {
+            "ko": "1~18레벨 90~0 (당시 공식 기재값)",
+            "en": "90–0 at levels 1–18 (published values)"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "12.22",
+              "date": "2022-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-22-notes/#patch-ivern"
+            }
+          ]
+        }
+      ],
+      "effects": {
+        "ko": [
+          "아이번은 에픽 몬스터가 아닌 몬스터를 직접 공격하지 않습니다. 캠프를 선택해 2.5초간 정신 집중하면 체력과 마나를 소모하여 수풀을 만듭니다.",
+          "스킬을 사용할 수 없는 상태에서는 수풀을 만들 수 없습니다.",
+          "수풀은 레벨에 따라 40~1초에 걸쳐 자라납니다. 다 자란 캠프를 다시 지정하면 0.5초의 시전 후 몬스터를 풀어주고 캠프를 처치한 것과 같은 전체 골드 및 경험치를 얻습니다. 수풀 안의 몬스터에게 강타를 사용하면 성장 여부와 무관하게 캠프를 즉시 풀어줍니다.",
+          "수풀을 만들기 전에 캠프의 대형 몬스터가 이미 죽었다면 정신 집중 완료 시 자원 소모 없이 캠프를 풀어줍니다. 수풀이 있는 상태에서 대형 몬스터가 죽어도 수풀이 즉시 다 자랍니다."
+        ],
+        "en": [
+          "Ivern marks a non-epic camp by channeling for 2.5 seconds and spending health and mana. He cannot attack these monsters directly.",
+          "Ivern cannot place a grove while he is unable to cast abilities.",
+          "The grove matures over 40 : 1 (based on level) seconds. When fully matured, Ivern can target the camp again to free it after a 0.5-second cast time, clearing the camp and receiving the full gold and full experience bounties. Using Smite on a monster within the grove will instantly free the camp regardless of maturity.",
+          "If the camp's large monster has already been slain prior to planting a grove, Ivern will free the camp upon completing the channel at no cost. Similarly, the grove will instantly mature if the large monster is slain."
+        ]
+      },
+      "notes": {
+        "ko": "12.22 비용은 패치 당시 공식 표시 범위입니다. 이후 기본 능력치 변경에 따른 현재의 정확한 레벨별 실소모는 별도 확인이 필요합니다.",
+        "en": "The ranges are the published 12.22 costs. Exact current costs by level after base-stat changes are not confirmed."
+      }
+    },
+    "R": {
+      "drop": [],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "데이지 지속시간",
+            "en": "Daisy duration"
+          },
+          "value": {
+            "ko": "45초",
+            "en": "45s"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "13.15",
+              "date": "2023-08-01",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-13-15-notes/#patch-ivern"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "데이지 방어력·마법 저항력",
+            "en": "Daisy armor and magic resistance"
+          },
+          "value": {
+            "ko": "30~90 (아이번 6~18레벨)",
+            "en": "30–90 (Ivern levels 6–18)"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "13.15",
+              "date": "2023-08-01",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-13-15-notes/#patch-ivern"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "데이지 체력",
+            "en": "Daisy health"
+          },
+          "value": {
+            "ko": "1,000~4,400 (6~18레벨, 비선형) + 주문력의 50%",
+            "en": "1,000–4,400 (levels 6–18, nonlinear) + 50% AP"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "13.15",
+              "date": "2023-08-01",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-13-15-notes/#patch-ivern"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "데이지 공격력",
+            "en": "Daisy attack damage"
+          },
+          "value": {
+            "ko": "70 / 100 / 130 + 주문력의 15%",
+            "en": "70 / 100 / 130 + 15% AP"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "13.15",
+              "date": "2023-08-01",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-13-15-notes/#patch-ivern"
+            }
+          ]
+        }
+      ],
+      "notes": {
+        "ko": "소환 지속시간과 능력치는 13.15에서 확인했습니다. 충격파 전체 조건은 표시된 수치 범위에 포함되지 않습니다.",
+        "en": "Summon duration and Daisy’s stats come from 13.15. These rows do not cover every shockwave condition."
+      },
+      "tooltipSource": true,
+      "effects": {
+        "en": [
+          "Daisy's third consecutive attack on the same champion or epic monster sends a shockwave that deals magic damage and knocks enemies up. Recast R to command Daisy to attack or move."
+        ],
+        "ko": [
+          "데이지가 같은 챔피언이나 에픽 몬스터를 연속 3회 공격하면 충격파가 마법 피해를 입히고 적을 공중에 띄웁니다. R을 다시 사용하면 데이지에게 공격 또는 이동을 지시합니다."
+        ]
+      }
+    }
+  },
+  "Brand": {
+    "P": {
+      "drop": [],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "몬스터 대상 불길 피해 배율",
+            "en": "Blaze burn multiplier against monsters"
+          },
+          "value": {
+            "ko": "270%",
+            "en": "270%"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.4",
+              "date": "2026-02-18",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-4-notes/#patch-brand"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "폭발 마법 피해",
+            "en": "Detonation magic damage"
+          },
+          "value": {
+            "ko": "대상 최대 체력의 6~12% (1~18레벨, 이후 계속 성장) + 주문력 100당 대상 최대 체력의 2%",
+            "en": "6–12% of target maximum health (levels 1–18, continues beyond 18) + 2% per 100 AP"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.13",
+              "date": "2026-06-23",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-13-notes/#patch-brand"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "에픽 외 몬스터 불길 피해 상한 · 시간 단위 미확인",
+            "en": "Non-epic burn cap · time basis unconfirmed"
+          },
+          "value": {
+            "ko": "50 (26.4 기재값)",
+            "en": "50 (as stated in 26.4)"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.4",
+              "date": "2026-02-18",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-4-notes/#patch-brand"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "처치 시 마나 회복",
+            "en": "Mana restored on kill"
+          },
+          "value": {
+            "ko": "30~50 (레벨에 따라)",
+            "en": "30–50 (by level)"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "13.16",
+              "date": "2023-08-15",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-13-16-notes/#patch-brand"
+            }
+          ]
+        }
+      ],
+      "effects": {
+        "en": [
+          "Innate: Brand's abilities apply a stack of Ablaze to enemies hit for 4 seconds, stacking up to 3 times and refreshing the duration of all stacks with each application. Subsequent abilities used against a target with Ablaze are empowered. Killing an enemy afflicted with Ablaze or any enemy with an ability restores 30–50 (based on level) mana.",
+          "Ablaze is stacking magic damage over 4 seconds. Its monster damage multiplier is 270%; the non-epic monster cap was changed to 50 in patch 26.4. Archived total and per-tick damage disagree, so those values are not presented as confirmed.",
+          "Upon applying 3 stacks of Ablaze to a large monster or enemy champion, the fire becomes unstable, causing it form a fiery ring around the target that grants sight within its radius and, after 2 seconds, consumes their stacks to explode. All enemies within the detonation are applied a stack of Ablaze and dealt magic damage equal to 6% : 12% (levels 1–18, continuing above level 18) (+ 2% per 100 AP) of their maximum health, capped at 270 / 355 / 440 / 525 (based on level) against monsters.",
+          "Brand cannot stack Ablaze more than once on enemies that have had a ring explode from them in the last 4 seconds.",
+          "The ring will form even if the target dies to the ability applying the third stack, and will still trigger the explosion if the target dies before it."
+        ],
+        "ko": [
+          "기본 지속 효과: 스킬이 적중한 적에게 4초 동안 불길 중첩을 적용합니다. 최대 3회 중첩되며, 새로 적용할 때마다 모든 중첩의 지속시간이 갱신됩니다. 불길이 적용된 대상에게 사용하는 후속 스킬은 강화됩니다. 불길이 적용된 적을 처치하거나 스킬로 적을 처치하면 마나를 30~50(레벨에 따라) 회복합니다.",
+          "불길은 4초 동안 지속되는 중첩형 마법 피해입니다. 몬스터 대상 피해 배율은 270%이며, 일반 몬스터 피해 상한은 공식 26.4 패치에서 50으로 변경되었습니다. 보관 자료의 총 피해량과 주기당 피해량이 서로 일치하지 않아 해당 수치는 확정 표시하지 않습니다.",
+          "대형 몬스터나 적 챔피언에게 불길이 3중첩되면 불길이 불안정해져 대상 주위에 화염 고리가 생깁니다. 고리 범위의 시야를 밝히며, 2초 후 중첩을 소모하고 폭발합니다. 폭발 범위의 모든 적에게 불길 중첩을 적용하고, 대상 최대 체력의 6%~12%(1~18레벨, 18레벨 이후에도 증가) + 주문력 100당 2%에 해당하는 마법 피해를 입힙니다. 몬스터 대상 피해 상한은 270 / 355 / 440 / 525(레벨에 따라)입니다.",
+          "자신의 화염 고리가 폭발한 뒤 4초가 지나지 않은 적에게는 불길을 한 중첩보다 많이 쌓을 수 없습니다.",
+          "세 번째 중첩을 적용하는 스킬에 대상이 죽어도 고리가 생성됩니다. 폭발 전에 대상이 죽어도 고리는 폭발합니다."
+        ]
+      }
+    }
+  },
+  "Teemo": {
+    "E": {
+      "drop": [
+        "Magic Damage per Tick",
+        "Poison bonus AD scaling"
+      ],
+      "rows": [
+        {
+          "attribute": {
+            "ko": "독 틱당 피해 · 추가 공격력 계수 확인 필요",
+            "en": "Poison damage per tick · bonus AD component unresolved"
+          },
+          "value": {
+            "ko": "6 / 12 / 18 / 24 / 30 + 주문력의 10% (추가 공격력 부분 별도)",
+            "en": "6 / 12 / 18 / 24 / 30 + 10% AP (bonus AD component listed separately)"
+          },
+          "provenance": "baseline",
+          "sources": [
+            {
+              "patch": "26.11",
+              "date": "2026-05-27",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-11-notes/#patch-teemo"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "ko": "독의 추가 공격력 계수 · 26.11 원문",
+            "en": "Poison bonus AD scaling · 26.11 wording"
+          },
+          "value": {
+            "ko": "원문 표기: 틱당 추가 공격력의 10% · 실제 틱당/총합 미확인",
+            "en": "Published as 10% bonus AD per tick; actual per-tick and total ratios unconfirmed"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.11",
+              "date": "2026-05-27",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-11-notes/#patch-teemo"
+            }
+          ]
+        }
+      ],
+      "notes": {
+        "ko": "26.9는 4초 총합 30%, 26.11은 이전 값을 틱당 20%로 기재해 서로 일치하지 않습니다. 실제 틱당 추가 공격력 계수 및 총합은 확정하지 않습니다.",
+        "en": "26.9 gives 30% over four seconds, but 26.11 describes the prior value as 20% per tick. The live per-tick bonus AD ratio and total remain unresolved."
+      }
+    }
+  },
+  "Nidalee": {
+    "R": {
+      "drop": [],
+      "rows": [],
+      "effects": {
+        "ko": [
+          "인간 형상에서 사냥 표식을 적용하면 R의 재사용 대기시간이 초기화됩니다. 형상을 바꾸면 공격 사거리와 Q·W·E가 함께 바뀝니다."
+        ],
+        "en": [
+          "Applying Hunted in human form resets this cooldown. Transforming switches attack range and replaces Q, W and E."
+        ]
+      },
+      "notes": {
+        "ko": "형상별 피해량은 Q·W·E에서 확인할 수 있습니다.",
+        "en": "See Q, W and E for damage in each form."
+      },
+      "tooltipSource": true,
+      "status": "reconciled"
+    }
+  },
+  "Akshan": {
+    "R": {
+      "drop": [],
+      "rows": [],
+      "status": "partial"
+    }
+  },
+  "Azir": {
+    "W": {
+      "drop": [],
+      "rows": [],
+      "status": "partial"
+    }
+  }
+}

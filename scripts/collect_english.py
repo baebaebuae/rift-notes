@@ -11,6 +11,7 @@ from pathlib import Path
 from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 from bs4 import BeautifulSoup
+from release_history import normalize_26_22, release_events
 import hashlib
 import json
 import os
@@ -132,6 +133,7 @@ def collect_patch(entry):
     try:
         current = patch_key(KO_INDEX['meta']['patch'])
         recent = patch_key(patch)[0] == current[0] and patch_key(patch)[1] >= current[1] - 1
+        recent = recent or bool(os.environ.get('RIFT_REFRESH_FROM') and patch_key(patch) >= patch_key(os.environ['RIFT_REFRESH_FROM']))
         soup = BeautifulSoup(fetch(url, refresh=recent), 'html.parser')
     except Exception as exc:
         return {'patch': patch, 'url': url, 'error': str(exc)}
@@ -140,7 +142,7 @@ def collect_patch(entry):
     published = soup.find('time')
     date = published.get('datetime', '')[:10] if published else ''
     events = []
-    for heading in soup.find_all('h3'):
+    for heading in soup.find_all(['h3','h4']):
         heading_text = re.sub(r'^\s*(?:new|updated)\s+', '', heading.get_text(' ', strip=True), flags=re.I)
         # Reused article anchors are not reliable champion identifiers: Riot has
         # used champion anchors for unrelated item and April Fools headings.
@@ -151,6 +153,12 @@ def collect_patch(entry):
         section = previous.get_text(' ', strip=True) if previous else ''
         if re.search(r'arena|aram|classic|swarm|urf|swiftplay|quickplay|nexus blitz|ultimate spellbook|doom bots|hexakill|one for all|april fool', section, re.I):
             continue
+        if heading.name == 'h4' and not re.search(r'mid.patch|hotfix', section, re.I):
+            continue
+        if heading.name == 'h4':
+            sub = heading.find_previous('h3')
+            if sub and re.search(r'arena|aram|classic|swarm|urf|swiftplay|quickplay', sub.get_text(' ', strip=True), re.I):
+                continue
         if re.search(r'mid.patch|hotfix', section, re.I):
             # Riot sometimes nests dated hotfix headings as h4 under a generic h2.
             for nearby in heading.find_all_previous(['h2', 'h3', 'h4']):
@@ -161,6 +169,14 @@ def collect_patch(entry):
                     section = text if re.search(r'mid.patch|hotfix', text, re.I) else section + ' · ' + text
                     break
         block = heading.find_parent(class_='patch-change-block') or heading.parent
+        if heading.name == 'h4':
+            preceding = []
+            for sibling in heading.parent.find_all(['h2', 'h3', 'h4']):
+                if sibling is heading:
+                    break
+                preceding.append(sibling.get_text(' ', strip=True))
+            if any(re.search(r'arena|aram|classic|swarm|urf|swiftplay|quickplay', title, re.I) for title in preceding):
+                continue
         changes = []
         title = 'General'
         started = False
@@ -173,6 +189,8 @@ def collect_patch(entry):
             if node.name in ('h2', 'h3'):
                 break
             if node.name == 'h4':
+                if heading.name == 'h4' or NAMES.get(normalized(node.get_text(' ', strip=True))):
+                    break
                 title = node.get_text(' ', strip=True)
                 if re.search(r'arena|aram|classic|swarm|urf|swiftplay|quickplay|clash schedule|known issues', title, re.I):
                     break
@@ -196,13 +214,16 @@ def collect_patch(entry):
                 text = node.get_text(' ', strip=True)
             text = ' '.join(text.split())
             if text:
-                changes.append({'slot': slot(title), 'title': title, 'text': text, 'kind': kind(text)})
+                changes.append({'slot': slot(text) if re.search(r'mid.patch|hotfix', section, re.I) and title == 'General' else slot(title), 'title': title, 'text': text, 'kind': kind(text)})
+        if patch == '26.22':
+            changes = normalize_26_22(champion, changes, kind)
         if changes:
             events.append({'champion': champion, 'patch': patch,
                            'date': section_date(section, date), 'articleDate': date,
-                           'url': url + '#' + heading.get('id', 'patch-champions'),
+                           'url': url + '#' + (heading.get('id') or (heading.find_previous('h3').get('id') if heading.name == 'h4' and heading.find_previous('h3') else None) or 'patch-champions'),
                            'changes': changes, 'section': section,
                            'isHotfix': bool(re.search(r'mid.patch|hotfix', section, re.I))})
+    events.extend(release_events(soup, patch, date, url))
     return {'patch': patch, 'date': date, 'url': url, 'events': events}
 
 

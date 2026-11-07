@@ -7,6 +7,7 @@ from urllib.error import HTTPError
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from bs4 import BeautifulSoup
+from release_history import normalize_26_22, release_events
 from datetime import datetime, timezone
 import json, re, os, hashlib, time
 ROOT=Path(__file__).resolve().parents[1]
@@ -66,13 +67,13 @@ def get_patch(pair):
  if major==25 and minor<3:slug=f'patch-25-s1-{minor}-notes'
  if major==25 and minor==3:slug='patch-2025-s1-3-notes'
  url='https://www.leagueoflegends.com/ko-kr/news/game-updates/'+slug+'/'
- try:html=fetch(url, refresh=major==current_public and minor>=current_minor-1)
+ try:html=fetch(url, refresh=(major==current_public and minor>=current_minor-1) or bool(os.environ.get('RIFT_REFRESH_FROM') and (major,minor)>=tuple(map(int,os.environ['RIFT_REFRESH_FROM'].split('.')))))
  except Exception as e:return {'patch':patch,'error':str(e),'url':url}
  s=BeautifulSoup(html,'html.parser')
  for script in s(['script','style','nav','footer']):script.decompose()
  t=s.find('time');date=t.get('datetime','')[:10] if t else ''
  events=[]
- for h in s.find_all('h3'):
+ for h in s.find_all(['h3','h4']):
   heading=re.sub(r'^\s*(?:신규|업데이트된|업데이트|new|updated)\s+','',h.get_text(' ',strip=True),flags=re.I)
   heading=re.sub(r'\s+업데이트$','',heading)
   c=canon(heading)
@@ -82,12 +83,22 @@ def get_patch(pair):
   section=h.find_previous('h2');sectiontxt=section.get_text(' ',strip=True) if section else ''
   if re.search('아레나|총력전|무작위|클래식|격전|돌격|신속|만우절|arena|aram|classic|swarm|urf|swiftplay',sectiontxt,re.I):continue
   hotfix=bool(re.search('추가 패치|긴급|mid.patch',sectiontxt,re.I))
+  if h.name=='h4':
+   if not hotfix:continue
+   sub=h.find_previous('h3')
+   if sub and re.search('아레나|총력전|무작위|아수라장|클래식|신속|arena|aram|classic|swiftplay',sub.get_text(' ',strip=True),re.I):continue
   if hotfix:
    for near in h.find_all_previous(['h2','h3','h4']):
     if near is section:break
     dated=near.get_text(' ',strip=True)
     if re.search(r'20\d{2}년\s*\d{1,2}월\s*\d{1,2}일',dated):sectiontxt=dated;break
   block=h.find_parent(class_='patch-change-block') or h.parent
+  if h.name=='h4':
+   preceding=[]
+   for sibling in h.parent.find_all(['h2','h3','h4']):
+    if sibling is h:break
+    preceding.append(sibling.get_text(' ',strip=True))
+   if any(re.search('아레나|총력전|무작위|아수라장|클래식|신속|arena|aram|classic|swiftplay',title,re.I) for title in preceding):continue
   changes=[]; current='일반'; started=False
   for node in block.select('h2, h3, h4, li, div.attribute-change'):
    if node is h:started=True;continue
@@ -95,6 +106,7 @@ def get_patch(pair):
    if node.name=='h2' and c=='XinZhao' and re.search('빌드 조정',node.get_text(' ',strip=True)):continue
    if node.name in ('h2','h3'):break
    if node.name=='h4':
+    if h.name=='h4' or canon(node.get_text(' ',strip=True)):break
     current=node.get_text(' ',strip=True)
     if re.search('아레나|총력전|아수라장|클래식|격전 일정|확인된 문제|신속 모드|신속 대전|arena|aram|classic|swiftplay',current,re.I):break
     if hotfix and re.fullmatch('버그 수정|버그 수정 및 편의성 개선',current):break
@@ -107,12 +119,14 @@ def get_patch(pair):
     txt=(attr.get_text(' ',strip=True)+': ' if attr else '')+(before.get_text(' ',strip=True)+' ⇒ ' if before else '')+(after.get_text(' ',strip=True) if after else node.get_text(' ',strip=True))
    else:txt=node.get_text(' ',strip=True)
    txt=' '.join(txt.split())
-   if txt:changes.append({'slot':slot(current),'title':current,'text':txt,'kind':kind(txt)})
+   if txt:changes.append({'slot':slot(txt) if hotfix and current=='일반' else slot(current),'title':current,'text':txt,'kind':kind(txt)})
+  if patch == '26.22':changes = normalize_26_22(c, changes, kind)
   if not changes:continue
   eventdate=date
   dm=re.search(r'(20\d{2})년\s*(\d{1,2})월\s*(\d{1,2})일',sectiontxt)
   if dm:eventdate=f'{int(dm[1]):04d}-{int(dm[2]):02d}-{int(dm[3]):02d}'
-  events.append({'champion':c,'patch':patch,'date':eventdate,'articleDate':date,'url':url+'#'+h.get('id','patch-champions'),'changes':changes,'section':sectiontxt,'isHotfix':hotfix})
+  events.append({'champion':c,'patch':patch,'date':eventdate,'articleDate':date,'url':url+'#'+(h.get('id') or (h.find_previous('h3').get('id') if h.name=='h4' and h.find_previous('h3') else None) or 'patch-champions'),'changes':changes,'section':sectiontxt,'isHotfix':hotfix})
+ events.extend(release_events(s, patch, date, url))
  return {'patch':patch,'date':date,'url':url,'events':events}
 current_major,current_minor=map(int,version.split('.')[:2]);current_public=current_major+10 if current_major>=15 else current_major
 pairs=[(y,n) for y in range(9,15) for n in range(1,25)]+[(y,n) for y in range(25,current_public+1) for n in range(1,(current_minor if y==current_public else 24)+1)]
