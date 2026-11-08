@@ -28,28 +28,47 @@ async function main(){
   const page=create({url:'https://rift.example/?champion=Varus&lang='+language});await page.ready('Varus');
   assert.equal(data(prefix+'Varus.json').history[0].date,'2026-10-22');
   for(const id of Object.keys(expected)){
-   await page.select(id);assert.equal(page.$$('.reconciled-spell').length,5,id+' reviewed display');
-   const c=data(prefix+id+'.json');for(const [slot,s] of Object.entries(c.details.skills)){const el=page.$('article[data-skill="'+slot+'"]');assert.equal(el.querySelectorAll('.reconciled-row').length,s.rows.length,id+slot+' every reviewed row available');}
+   await page.select(id);assert.equal(page.$$('#spells article[data-skill]').length,5,id+' reviewed display');
+   const c=data(prefix+id+'.json');
+   for(const [slot,ability] of Object.entries(c.details.skills)){
+    const el=page.$('article[data-skill="'+slot+'"]');
+    for(const row of ability.rows){
+     const numeric=row.value.replace(/\s|seconds?|mana|초|마나|(?<=\d)s\b/gi,'');
+     const table=Array.from(el.querySelectorAll('.spell-rows .formula-row'));
+     const inTable=table.some(node=>node.querySelector('.flabel').textContent===row.attribute&&node.querySelector('.formula-value').textContent===row.value);
+     const inMeta=[...el.querySelectorAll('.spell-meta b,.spell-range .formula-value')].some(node=>node.textContent.replace(/초|s$/g,'')===numeric);
+     assert(inTable||inMeta,id+slot+' missing '+row.attribute);
+    }
+   }
   }
-  await page.select('Darius');assert(page.$('article[data-skill="Q"] .spell-meta').textContent.includes('9/8/7/6/4'));assert(page.$('article[data-skill="Q"]').textContent.includes('9/7.75/6.5/5.25/4'));
+  await page.select('Darius');assert(page.$('article[data-skill="Q"] .spell-meta').textContent.includes('9/8/7/6/4'));assert(!page.$('article[data-skill="Q"]').textContent.includes('9/7.75/6.5/5.25/4'));
   await page.select('Jinx');assert.equal(page.$('.stat-value').textContent,'610');page.$('#level').value=18;page.$('#level').dispatchEvent(new page.w.Event('input'));assert.equal(page.$$('.stat-value')[2].textContent,'110');
-  await page.select('MissFortune');const r=page.$('article[data-skill="R"]');r.querySelector('[data-expand]').click();assert.equal(r.querySelector('[data-expand]').getAttribute('aria-expanded'),'true');assert(r.textContent.includes('145%'));assert(!r.querySelector('.spell-range').textContent.match(/Global|전역/));
-  await page.select('Shyvana');assert.equal(page.$$('.spell[data-review-status="partial"]').length,4,'rework gaps explicit');
+  await page.select('MissFortune');const r=page.$('article[data-skill="R"]');r.querySelector('[data-expand]').click();assert.equal(r.querySelector('[data-expand]').getAttribute('aria-expanded'),'true');assert(r.textContent.includes('145%'));assert(!r.textContent.match(/25000|Global|전역/));
+  await page.select('Shyvana');assert.equal(page.$$('article[data-skill]').length,5,'all reworked abilities shown');
   for(const id of ['Locke','Shyvana']) {
    const release=data(prefix+id+'.json').history.find(h=>h.release);
    assert.deepEqual(new Set(release.changes.map(c=>c.slot)),new Set('PQWER'));
   }
   await page.select('Mel');
   assert.equal(page.$('article[data-skill="W"] .spell-meta div:last-child b').textContent,'100/80/60/40/0');
-  assert(page.$('article[data-skill="W"] .spell-data-note').textContent.includes('100/75/50/25/0'));
-  assert.equal(page.$('article[data-skill="Q"]').dataset.reviewStatus,'reconciled');
+  assert(!page.$('article[data-skill="W"]').textContent.includes('100/75/50/25/0'));
   assert.match(page.$('article[data-skill="Q"]').textContent,/85[~–]285/);
-  assert.match(page.$('article[data-skill="W"]').textContent,/30 \/ 28.5 \/ 27 \/ 25.5 \/ 24/);
+  assert.match(page.$('article[data-skill="W"] .spell-meta').textContent,/30\/28.5\/27\/25.5\/24/);
   assert.equal(data(prefix+'Mel.json').effectiveStats.attackspeedperlevel,2.75);
   assert(!data(prefix+'Mel.json').statConflicts.some(c=>c.field==='attackspeed'));
   await page.select('Zaahen');
   assert.match(page.$('article[data-skill="Q"] .spell-meta').textContent,/8\/7.5\/7\/6.5\/6/);
   await page.select('Gwen');assert(page.$('.stat-source-note'),'source conflict visible');page.close();
+  const legacy=create({url:'https://rift.example/?champion=Darius&lang='+language,fetchOverride:url=>{
+   if(url!=='data/'+prefix+'Darius.json')return;
+   const champion=data(prefix+'Darius.json');delete champion.details;
+   return Promise.resolve({ok:true,json:async()=>champion});
+  }});
+  await legacy.ready('Darius');
+  assert.match(legacy.$('article[data-skill="Q"] .spell-meta').textContent,/9\/8\/7\/6\/4/);
+  assert(!legacy.$('#spells').querySelector('a,details.archive-details'));
+  assert(!/⇒|→|보관본|archived values/i.test(legacy.$('#spells').textContent));
+  legacy.close();
   assert.equal(data(prefix+'Azir.json').stats.mpperlevel,50);assert.equal(data(prefix+'Sion.json').stats.hpperlevel,95);assert.equal(data(prefix+'Viktor.json').stats.movespeed,330);assert.equal(data(prefix+'MonkeyKing.json').stats.hpregen,5.5);
   assert.equal(data(prefix+'LeeSin.json').spells[1].cooldownBurn,'8');assert.equal(data(prefix+'Locke.json').spells[1].costBurn,'60/65/70/75/80');
  }
@@ -60,6 +79,6 @@ async function main(){
  assert.equal(data('en/Viego.json').details.skills.R.rows.find(r=>r.attribute==='Base AD damage').provenance,'derived');
  assert.match(values('Viktor','R'),/270% AP/);
  assert.match(values('Locke','Q'),/63 \/ 92.4 \/ 121.8 \/ 151.2 \/ 180.6/);
- console.log('PASS: 26.22 14 champions, 44 changes; release kits; Mel cost conflict; 173 champions / 865 skills in KO+EN; 26.21 58 changes including October 22 hotfix; independent damage fixtures; source badges; Darius/stat conflicts; rework gaps; expanded values and range placeholders.');
+ console.log('PASS: 26.22 14 champions, 44 changes; release kits; Mel cost conflict; 173 champions / 865 skills in KO+EN; 26.21 58 changes including October 22 hotfix; independent damage fixtures; clean skill cards; Darius/stat conflicts; rework gaps; expanded values and range placeholders.');
 }
 main().catch(e=>{console.error(e);process.exitCode=1}).finally(closeAll);

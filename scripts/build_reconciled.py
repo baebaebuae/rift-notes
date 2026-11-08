@@ -88,6 +88,30 @@ def apply_review(profiles):
                 skill['sources'].append(source)
 
 
+def apply_card_text(profiles):
+    """Use gameplay wording for cards while retaining the original reviews and history."""
+    for champion, slots in read(REVIEWS / 'card-text.json').items():
+        for slot, edits in slots.items():
+            skill = profiles[champion]['skills'][slot]
+            effects = edits.get('effects', {})
+            if effects:
+                rewritten = {'ko': [], 'en': []}
+                pairs = zip(skill['effects']['ko'], skill['effects']['en'], strict=True)
+                for ko, en in pairs:
+                    copy = effects.get(en, {'ko': ko, 'en': en})
+                    if copy is not None:
+                        for lang in rewritten:
+                            rewritten[lang].append(copy[lang])
+                skill['effects'] = rewritten
+            rows = []
+            for row in skill['rows']:
+                key = row['attribute']['en'] + ' | ' + row['value']['en']
+                copy = edits.get('rows', {}).get(key, {})
+                if copy is not None:
+                    rows.append({**row, **copy})
+            skill['rows'] = rows
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--record-review', action='store_true')
@@ -97,6 +121,7 @@ def main():
     profiles = load_profiles()
     assert set(profiles) == {c['id'] for c in index['champions']}
     apply_review(profiles)
+    apply_card_text(profiles)
     revisions = inputs()
     lock = REVIEWS / 'source-revisions.json'
     if not args.record_review and (not lock.exists() or read(lock) != revisions):

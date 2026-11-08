@@ -20,6 +20,13 @@ async function main(){
    const text=el.textContent.replace(/(?<![A-Za-z])(?:AP|AD|[PQWER]{1,2}|H-28G|H-28Q|CH-2|CH-3X)(?![A-Za-z])/g,'');
    if(/[A-Za-z]{2,}/.test(text)||/%i:/.test(text))leftovers.push([champion.id,text]);
   }
+  for(const page of [ko,en]){
+   const cards=page.$('#spells');
+   assert(!cards.querySelector('a,.spell-source,.spell-data-note,.value-provenance,.review-sources,.passive-baseline'));
+   assert(!page.$('.quality-note'));
+   assert(!/(공식 (변경|문서|패치)|기존 자료|후속 변경|반영한 공식|보관본|patch notes|changes applied through|archived (?:detail|condition)|\b(?:25|26)\.\d+ (?=notes|patch|원문|공식)|\((?:25|26)\.\d+\))/i.test(cards.textContent),champion.id+' card includes patch commentary');
+   assert.equal(page.$$('#timeline .patch-card').length>0,(page===ko?a:b).history.length>0);
+  }
   const tags=ko.$$('.stat-value').map(x=>x.textContent);assert.deepEqual(en.$$('.stat-value').map(x=>x.textContent),tags,champion.id+' displayed level1 stats');
   // Prose-only passives were silently dropped when their table rows were empty.
   const sourceEffects=a.details.skills.P.effects;
@@ -31,7 +38,6 @@ async function main(){
    for(let n=0;n<koEffects.length;n++)assert.deepEqual(numbers(koEffects[n].textContent),numbers(enEffects[n].textContent),champion.id+' passive numeric integrity '+n);
    const passive=ko.$('.spell[data-skill="P"]');
    assert(!passive.textContent.includes('세부 수치 미확보'),champion.id+' prose is data, not unavailable');
-   assert(passive.querySelector('.passive-baseline').textContent.includes('후속 변경'),champion.id+' source limitations disclosed');
   }
  }
  assert.deepEqual(leftovers,[],'Korean untranslated skill details');
@@ -42,7 +48,7 @@ async function main(){
  assert(!fortune.textContent.includes('현재 수집 자료에 상세 수치가 포함되어 있지 않습니다.'));
  await ko.select('Aphelios');const more=ko.$('.passive-more');assert(more,'long passive has disclosure');more.open=true;assert(more.querySelectorAll('.passive-effect').length>0);
  ko.close();en.close();console.log('PASS: 173 champions in both languages; no unintended language in skills; identical base stats and formulas.');
- console.log('PASS: all reconciled passive prose and numbers; Miss Fortune total AD/minion ratios; source labels; long-passive disclosure.');
+ console.log('PASS: all reconciled passive prose and numbers; Miss Fortune total AD/minion ratios; patch history separated from cards; long-passive disclosure.');
  const page=create({url:'https://rift.example/?champion=Ahri'});await page.ready('Ahri');
  page.$('[data-skill="Q"]').click();const lv=page.$('#level');lv.value=18;lv.dispatchEvent(new page.w.Event('input'));
  page.$('[data-filter="nerf"]').click();const years=page.$('#yearFilter');years.value='26';years.dispatchEvent(new page.w.Event('change'));

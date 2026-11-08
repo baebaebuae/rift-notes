@@ -1,0 +1,709 @@
+{
+  "Akshan": {
+    "P": {
+      "effects": {
+        "The additional shot applies on-hit and on-attack effects. Critical strikes apply 100% of bonus critical strike damage; the 26.1 examples are 2× / 2.3×.": {
+          "ko": "추가 탄환에는 적중 시 효과와 공격 시 효과가 적용됩니다. 치명타에는 추가 치명타 피해의 100%가 적용됩니다.",
+          "en": "The additional shot applies on-hit and on-attack effects. Critical strikes apply 100% of bonus critical strike damage."
+        }
+      }
+    }
+  },
+  "Ashe": {
+    "P": {
+      "effects": {
+        "Critical scaling follows 100% of bonus critical damage (up to 2 / 2.3 times with the item condition stated in the 26.1 notes). Critical strikes do not add a separate critical damage instance.": {
+          "ko": "치명타 계수에는 추가 치명타 피해의 100%가 적용됩니다. 치명타가 별도의 피해를 한 번 더 입히지는 않습니다.",
+          "en": "Critical scaling uses 100% of bonus critical damage. Critical strikes do not deal a separate instance of damage."
+        }
+      }
+    }
+  },
+  "Belveth": {
+    "P": {
+      "effects": {
+        "Her basic attacks now deal 100% damage; the former 75% attack damage modifier was removed in 26.15. She does not gain attack speed from levels.": {
+          "ko": "기본 공격은 공격력의 100%에 해당하는 피해를 입힙니다. 레벨 상승으로 공격 속도가 증가하지 않습니다.",
+          "en": "Basic attacks deal 100% attack damage. Bel’Veth does not gain attack speed per level."
+        },
+        "Casting an ability grants 20% bonus attack speed for 3 seconds (26.15).": {
+          "ko": "스킬을 사용하면 3초 동안 공격 속도가 20% 증가합니다.",
+          "en": "Casting an ability grants 20% bonus attack speed for 3 seconds."
+        }
+      }
+    },
+    "Q": {
+      "rows": {
+        "Minion Damage Modifier | Removed": null
+      }
+    },
+    "E": {
+      "rows": {
+        "Lifesteal Scaling | Removed": null
+      }
+    },
+    "R": {
+      "rows": {
+        "Out of Combat Move Speed | Removed": null,
+        "Target Swapping | Passive no longer removed when swapping targets": {
+          "attribute": {
+            "ko": "공격 대상 변경",
+            "en": "Switching targets"
+          },
+          "value": {
+            "ko": "대상을 바꿔도 지속 효과 유지",
+            "en": "The passive persists when switching targets"
+          }
+        },
+        "Passive Application Requirement | E and Q no longer require Bel’Veth to have attacked the target first": {
+          "attribute": {
+            "ko": "Q·E 지속 효과",
+            "en": "Q and E passive triggers"
+          },
+          "value": {
+            "ko": "대상을 기본 공격하기 전에도 발동",
+            "en": "Can trigger before attacking the target"
+          }
+        },
+        "NEW True Form Remora Indicator | Resource bar now turns purple when True Form can spawn Remora": {
+          "attribute": {
+            "ko": "공허 빨판상어 생성",
+            "en": "Void Remora indicator"
+          },
+          "value": {
+            "ko": "진정한 모습에서 생성할 수 있으면 자원 바가 보라색으로 표시",
+            "en": "The resource bar turns purple when True Form can spawn Remora"
+          }
+        }
+      }
+    }
+  },
+  "Brand": {
+    "P": {
+      "effects": {
+        "Ablaze is stacking magic damage over 4 seconds. Its monster damage multiplier is 270%; the non-epic monster cap was changed to 50 in patch 26.4. Archived total and per-tick damage disagree, so those values are not presented as confirmed.": {
+          "ko": "불길은 4초 동안 지속되는 중첩형 마법 피해입니다. 몬스터에게는 270%의 피해를 입힙니다.",
+          "en": "Blaze stacks and deals magic damage over 4 seconds. It deals 270% damage against monsters."
+        }
+      },
+      "rows": {
+        "Non-epic burn cap · time basis unconfirmed | 50 (as stated in 26.4)": {
+          "attribute": {
+            "ko": "일반 몬스터 대상 불길 피해 상한",
+            "en": "Burn damage cap against non-epic monsters"
+          },
+          "value": {
+            "ko": "50 (적용 시간 단위 미확인)",
+            "en": "50 (time interval unknown)"
+          }
+        }
+      }
+    }
+  },
+  "Caitlyn": {
+    "P": {
+      "effects": {
+        "Headshot: the 26.21 notes give 60–80% AD (+0.8% AD per 1% critical strike chance) (+0.8% AD per 1% bonus critical damage). The latest separately stated non-champion base modifier is 110% total AD (25.23).": {
+          "ko": "헤드샷은 공격력의 60~80%만큼 추가 피해를 입힙니다. 치명타 확률 1%당 공격력의 0.8%, 추가 치명타 피해 1%당 공격력의 0.8%가 더해집니다. 챔피언이 아닌 대상에 대한 기본 배율은 총 공격력의 110%입니다.",
+          "en": "Headshot deals 60–80% AD as bonus damage, plus 0.8% AD per 1% critical strike chance and 0.8% AD per 1% bonus critical damage. The base modifier against non-champions is 110% total AD."
+        }
+      }
+    }
+  },
+  "Cassiopeia": {
+    "P": {
+      "effects": {
+        "Movement speed buffs have 5%–36% increased effectiveness based on level. The flat movement-speed/no-boots passive was reworked in 26.1 and adjusted to this range in 26.18.": {
+          "ko": "이동 속도 증가 효과가 레벨에 따라 5~36% 강해집니다.",
+          "en": "Movement speed buffs are 5–36% more effective based on level."
+        }
+      }
+    }
+  },
+  "Fizz": {
+    "P": {
+      "effects": {
+        "Against jungle monsters, the flat reduction is increased by 10 to 14 (+1% AP), still capped at 50% of the incoming damage (25.23).": {
+          "ko": "정글 몬스터에게 받는 피해를 14 + 주문력의 1%만큼 줄입니다. 감소량은 받는 피해의 50%를 넘지 않습니다.",
+          "en": "Damage from jungle monsters is reduced by 14 + 1% AP, up to 50% of the incoming damage."
+        }
+      },
+      "rows": {
+        "Increased by 10 against jungle monsters (now 14 + 1% AP) | Increased by 10 against jungle monsters (now 14 + 1% AP)": {
+          "attribute": {
+            "ko": "정글 몬스터 대상 피해 감소",
+            "en": "Damage reduction against jungle monsters"
+          },
+          "value": {
+            "ko": "14 + 주문력의 1%",
+            "en": "14 + 1% AP"
+          }
+        }
+      }
+    },
+    "W": {
+      "rows": {
+        "Tower Damage | Damage over time no longer affects structures": {
+          "value": {
+            "ko": "지속 피해가 구조물에 적용되지 않음",
+            "en": "Structures are immune to the damage over time"
+          }
+        },
+        "We Did the Math | Damage over time now displays total damage to target": null
+      }
+    }
+  },
+  "Lillia": {
+    "P": {
+      "effects": {
+        "Abilities apply Dream Dust, dealing 5% (+1.25% per 100 AP) of the target's maximum health as total magic damage over 3 seconds. The monster damage cap is 70–180 based on level, as listed in patch 26.8.": {
+          "ko": "스킬 적중 시 꿈가루가 3초 동안 대상 최대 체력의 5% + 주문력 100당 1.25%의 마법 피해를 입힙니다. 몬스터에게는 레벨에 따라 최대 70~180의 피해를 입힙니다.",
+          "en": "Dream Dust from ability hits deals 5% (+1.25% per 100 AP) of the target’s maximum health as magic damage over 3 seconds. Damage against monsters is capped at 70–180 based on level."
+        }
+      }
+    }
+  },
+  "Nocturne": {
+    "P": {
+      "effects": {
+        "The empowered attack can critically strike against its primary target. The archive’s fixed critical-damage expression is omitted because its item conditions are missing and the global crit system changed in 26.1.": {
+          "ko": "강화된 기본 공격은 주 대상에게 치명타를 입힐 수 있습니다.",
+          "en": "The empowered attack can critically strike its primary target."
+        }
+      }
+    }
+  },
+  "Shyvana": {
+    "P": {
+      "effects": {
+        "The reworked passive grants 0.3 armor and magic resistance each per stack. Pre-rework dragon-kill bonuses and dragon damage text are excluded.": {
+          "ko": "중첩마다 방어력과 마법 저항력이 각각 0.3 증가합니다.",
+          "en": "Each stack grants 0.3 armor and magic resistance."
+        }
+      }
+    },
+    "Q": {
+      "rows": {
+        "Recast window | 4s; one extra recast in dragon form": {
+          "value": {
+            "ko": "4초 · 용 형상에서는 1회 더 재사용하며, 마지막 타격은 고정 피해",
+            "en": "4 seconds. Dragon form grants one extra recast. The final hit deals true damage."
+          }
+        }
+      }
+    }
+  },
+  "Varus": {
+    "P": {
+      "effects": {
+        "Killing an enemy grants Living Vengeance for 5 / 7 / 9 / 11 seconds by level. The official 26.12 notes state 30% bonus attack speed on non-champion kills.": {
+          "ko": "적을 처치하면 레벨에 따라 5 / 7 / 9 / 11초 동안 죽지 않는 복수심을 얻습니다. 챔피언이 아닌 유닛을 처치하면 공격 속도가 30% 증가합니다.",
+          "en": "Killing an enemy grants Living Vengeance for 5 / 7 / 9 / 11 seconds based on level. Killing a non-champion grants 30% bonus attack speed."
+        },
+        "The 26.21 2026-10-22 hotfix states 1.4 bonus AD and AP per 10% attack speed on a kill/takedown. Its distinction from the champion-takedown modifier is unclear, so it is not combined with the older 26.12 value of 33% into a single claimed formula.": {
+          "ko": "처치 또는 처치 관여 시 공격 속도 10%당 추가 공격력과 주문력을 각각 1.4 얻습니다.",
+          "en": "On a kill or takedown, gain 1.4 bonus AD and AP per 10% attack speed."
+        },
+        "While the effect is active, the attack-speed cap is 3.33 (archived detail).": {
+          "ko": "효과가 지속되는 동안 공격 속도 상한은 3.33입니다.",
+          "en": "The attack speed cap is 3.33 while this effect is active."
+        }
+      }
+    },
+    "Q": {
+      "rows": {
+        "Minimum damage after piercing targets | At least 33% of original damage (archived condition)": {
+          "value": {
+            "ko": "최초 피해량의 최소 33%",
+            "en": "At least 33% of the original damage"
+          }
+        }
+      }
+    }
+  },
+  "Yasuo": {
+    "P": {
+      "effects": {
+        "Critical strikes deal 5% reduced damage (26.17), replacing the former 10% reduction. With the 200% standard critical multiplier, this is 190% before item-specific bonus critical damage.": {
+          "ko": "치명타 피해량이 5% 감소합니다. 기본 치명타 피해 배율 200%에 적용하면 아이템 효과를 제외한 배율은 190%입니다.",
+          "en": "Critical strikes deal 5% reduced damage. With the standard 200% multiplier, they deal 190% damage before item bonuses."
+        }
+      }
+    }
+  },
+  "Kalista": {
+    "P": {
+      "effects": {
+        "Kalista can purchase the Black Spear from the shop at no cost to obtain it again and, before 3 minutes of game time, may activate the item again on a different target to rebind and swear an oath with a new ally. See Black Spear for more details.": {
+          "ko": "상점에서 칠흑의 창을 무료로 다시 구매할 수 있으며, 게임 시간 3분 전에는 다른 아군에게 재사용해 계약 대상을 바꿀 수 있습니다.",
+          "en": "Kalista can purchase the Black Spear from the shop at no cost to obtain it again and, before 3 minutes of game time, may activate the item again on a different target to rebind and swear an oath with a new ally."
+        }
+      }
+    }
+  },
+  "Azir": {
+    "P": {
+      "effects": {
+        "See Pets for more details about the Sun Disc.": null
+      }
+    },
+    "W": {
+      "rows": {
+        "On-Hit? More Like On-Destroy | Scorch, Liandry's Torment, Blackfire Torch, and Hextech Alternator now deal 100% of their damage on-hit instead of 50%": {
+          "attribute": {
+            "ko": "적중 시 아이템·룬 피해",
+            "en": "On-hit item and rune damage"
+          },
+          "value": {
+            "ko": "주문 작열, 리안드리의 고통, 검은불꽃 횃불, 마법공학 교류기 피해의 100%",
+            "en": "100% damage from Scorch, Liandry’s Torment, Blackfire Torch and Hextech Alternator"
+          }
+        },
+        "Double-tap | Conqueror will now apply 2 stacks on-hit instead of 1": {
+          "attribute": {
+            "ko": "정복자 중첩",
+            "en": "Conqueror stacks"
+          },
+          "value": {
+            "ko": "적중 시 2중첩",
+            "en": "2 stacks per hit"
+          }
+        },
+        "Laser Focus | Press the Attack now applies to the primary target hit": {
+          "attribute": {
+            "ko": "집중 공격",
+            "en": "Press the Attack"
+          },
+          "value": {
+            "ko": "주 대상에게 적용",
+            "en": "Applies to the primary target"
+          }
+        }
+      }
+    },
+    "R": {
+      "rows": {
+        "Be Gone, Peasant! | Now knocks back jungle monsters": {
+          "attribute": {
+            "ko": "몬스터 대상 효과",
+            "en": "Effect on jungle monsters"
+          },
+          "value": {
+            "ko": "밀어냄",
+            "en": "Knocks them back"
+          }
+        }
+      }
+    }
+  },
+  "Elise": {
+    "P": {
+      "effects": {
+        "See Pets for more details about Spiderlings.": null
+      }
+    }
+  },
+  "Illaoi": {
+    "P": {
+      "effects": {
+        "See Pets for more details about Tentacles.": null
+      }
+    }
+  },
+  "Leblanc": {
+    "P": {
+      "effects": {
+        "See Pets for more details about LeBlanc's clone.": null
+      }
+    }
+  },
+  "Naafiri": {
+    "P": {
+      "effects": {
+        "See Pets for full details on Packmates.": null
+      }
+    }
+  },
+  "Orianna": {
+    "P": {
+      "effects": {
+        "See Pets for more details about The Ball.": null
+      }
+    }
+  },
+  "Yorick": {
+    "P": {
+      "effects": {
+        "See Pets for more details about Mist Walkers.": null
+      }
+    }
+  },
+  "Zac": {
+    "P": {
+      "effects": {
+        "See Pets for stats and details for bloblets.": null
+      }
+    }
+  },
+  "Olaf": {
+    "Q": {
+      "rows": {
+        "Slow | Official notes: 30 / 40 / 45 / 50%, lasting 1–3s by distance (one of five rank values omitted)": {
+          "value": {
+            "ko": "30~50%, 투척 거리에 따라 1~3초",
+            "en": "30–50% for 1–3 seconds based on distance"
+          }
+        }
+      }
+    }
+  },
+  "Zaahen": {
+    "P": {
+      "rows": {
+        "Bonus AD per Stack (25.23) | 1.5-2.8 (based on level)": {
+          "attribute": {
+            "ko": "중첩당 추가 공격력",
+            "en": "Bonus AD per stack"
+          }
+        }
+      }
+    },
+    "E": {
+      "rows": {
+        "Sweet Spot Damage (25.24) | 4 / 4.5 / 5 /5.5 / 6%": {
+          "attribute": {
+            "ko": "글레이브 끝 피해량",
+            "en": "Sweet spot damage"
+          }
+        }
+      }
+    },
+    "Q": {
+      "rows": {
+        "Q1 no longer heals when hitting wards, plants, or structures | Q1 no longer heals when hitting wards, plants, or structures": {
+          "attribute": {
+            "ko": "체력 회복 조건",
+            "en": "Healing targets"
+          },
+          "value": {
+            "ko": "첫 타격으로 와드·식물·구조물을 공격하면 회복되지 않음",
+            "en": "The first hit does not heal against wards, plants or structures"
+          }
+        },
+        "NEW Cooldown Behavior | If Q is active, it is now placed on Cooldown immediately upon being put in Resurrection": {
+          "attribute": {
+            "ko": "부활 중 재사용 대기시간",
+            "en": "Cooldown on resurrection"
+          },
+          "value": {
+            "ko": "Q가 활성화된 상태에서 부활에 들어가면 즉시 재사용 대기시간 시작",
+            "en": "Entering resurrection while Q is active immediately starts its cooldown"
+          }
+        }
+      }
+    }
+  },
+  "Teemo": {
+    "E": {
+      "rows": {
+        "Poison damage per tick · bonus AD component unresolved | 6 / 12 / 18 / 24 / 30 + 10% AP (bonus AD component listed separately)": {
+          "attribute": {
+            "ko": "독 1회당 기본 피해 및 주문력 계수",
+            "en": "Poison base damage and AP scaling per tick"
+          },
+          "value": {
+            "ko": "6 / 12 / 18 / 24 / 30 + 주문력의 10%",
+            "en": "6 / 12 / 18 / 24 / 30 + 10% AP"
+          }
+        },
+        "Poison bonus AD scaling · 26.11 wording | Published as 10% bonus AD per tick; actual per-tick and total ratios unconfirmed": null
+      }
+    }
+  },
+  "Ivern": {
+    "P": {
+      "rows": {
+        "Grove health cost · published in 12.22 | 98–0 at levels 1–18 (published values)": null,
+        "Grove mana cost · published in 12.22 | 90–0 at levels 1–18 (published values)": null
+      }
+    }
+  },
+  "Corki": {
+    "Q": {
+      "rows": {
+        "Magic Damage | 60 / 105 / 150 / 195 / 240 + 125% bonus AD + 100% AP": {
+          "value": {
+            "ko": "60 / 105 / 150 / 195 / 240 + 공격력의 125% (총·추가 구분 미확인) + 주문력의 100%",
+            "en": "60 / 105 / 150 / 195 / 240 + 125% AD (total or bonus unspecified) + 100% AP"
+          }
+        }
+      }
+    }
+  },
+  "Gangplank": {
+    "E": {
+      "rows": {
+        "Keg critical strikes | Separate 5% bonus critical-strike damage removed": null
+      }
+    }
+  },
+  "Hwei": {
+    "P": {
+      "rows": {
+        "Comboing Slows | Slows from Hwei's abilities now stack with diminishing values.": {
+          "attribute": {
+            "ko": "둔화 중첩",
+            "en": "Slow stacking"
+          },
+          "value": {
+            "ko": "흐웨이의 스킬끼리 둔화가 중첩되며 추가 둔화의 효과가 감소",
+            "en": "Slows from Hwei’s abilities stack with diminishing strength"
+          }
+        },
+        "Bugfix | Slows from Hwei's QE and R abilities no longer stack with slows from other champions / items.": {
+          "attribute": {
+            "ko": "외부 둔화와의 중첩",
+            "en": "Other slows"
+          },
+          "value": {
+            "ko": "QE와 R의 둔화는 다른 챔피언이나 아이템의 둔화와 중첩되지 않음",
+            "en": "QE and R slows do not stack with slows from other champions or items"
+          }
+        }
+      }
+    }
+  },
+  "LeeSin": {
+    "W": {
+      "rows": {
+        "NEW Shield on non-champions | Lee Sin gets his shield when jumping to a minion or ward": {
+          "attribute": {
+            "ko": "미니언·와드 도약",
+            "en": "Jumping to minions or wards"
+          },
+          "value": {
+            "ko": "리 신에게 보호막 부여",
+            "en": "Lee Sin gains a shield"
+          }
+        }
+      }
+    },
+    "E": {
+      "rows": {
+        "Bugfix | No longer reveals invisible enemies if they stealth after being hit by Tempest.": {
+          "attribute": {
+            "ko": "은신 대상",
+            "en": "Stealthed enemies"
+          },
+          "value": {
+            "ko": "E 적중 후 은신한 적은 드러나지 않음",
+            "en": "Enemies that become invisible after the hit stay hidden"
+          }
+        }
+      }
+    },
+    "R": {
+      "rows": {
+        "NEW Unconditional Collateral | A champion’s body will continue to fly, knock up, and do damage even if killed mid-flight": {
+          "attribute": {
+            "ko": "밀려나는 대상",
+            "en": "Knockback"
+          },
+          "value": {
+            "ko": "대상이 도중에 처치되어도 계속 날아가 다른 적에게 피해를 입히고 공중에 띄움",
+            "en": "A target killed mid-flight still travels, damages and knocks up other enemies"
+          }
+        }
+      }
+    }
+  },
+  "Mordekaiser": {
+    "R": {
+      "rows": {
+        "Maximum-health reduction behavior | Fixed excess damage against targets above their reduced maximum health": null
+      }
+    }
+  },
+  "Neeko": {
+    "W": {
+      "rows": {
+        "Clone emotes | Clone-only joke command removed; joke/dance/recall commands remain available": null
+      }
+    }
+  },
+  "Rengar": {
+    "Q": {
+      "rows": {
+        "Critical-strike behavior | No longer always treated as a critical strike; extra damage requires the attack to crit": {
+          "value": {
+            "ko": "공격이 치명타로 적중하면 추가 피해",
+            "en": "Extra damage requires a critical strike"
+          }
+        }
+      }
+    }
+  },
+  "Rumble": {
+    "Q": {
+      "rows": {
+        "Current behavior | No longer occasionally fails to apply the full debuff duration": null,
+        "Current behavior | Red team no longer deals delayed damage and/or less damage to champions": null,
+        "Current behavior | Debuff no longer checks for targetability before dealing damage": {
+          "attribute": {
+            "ko": "대상 지정 불가",
+            "en": "Untargetable enemies"
+          },
+          "value": {
+            "ko": "이미 적용된 지속 피해는 대상 지정 불가 상태에서도 지속",
+            "en": "An existing burn continues while the target is untargetable"
+          }
+        },
+        "Current behavior | Debuff no longer checks for 700u proximity to Rumble before dealing damage": {
+          "attribute": {
+            "ko": "시전자와의 거리",
+            "en": "Distance from Rumble"
+          },
+          "value": {
+            "ko": "대상이 멀어져도 이미 적용된 지속 피해 유지",
+            "en": "An existing burn continues when the target moves away"
+          }
+        }
+      }
+    },
+    "R": {
+      "rows": {
+        "Current behavior | Now lasts the full duration across the entire damaging zone": {
+          "attribute": {
+            "ko": "피해 지역",
+            "en": "Damage zone"
+          },
+          "value": {
+            "ko": "전체 범위에서 지속시간 동안 피해",
+            "en": "The entire zone deals damage for its full duration"
+          }
+        },
+        "Current behavior | Now more rapidly deals damage when initially dropped.": null,
+        "Current behavior | Red team no longer deals delayed damage and/or less damage to champions.": null
+      }
+    }
+  },
+  "Singed": {
+    "Q": {
+      "rows": {
+        "Current behavior | While on the Red side, Singed no longer deals delayed damage and/or less damage to champions.": null
+      }
+    }
+  },
+  "Samira": {
+    "Q": {
+      "rows": {
+        "The Right Tool for the Job | Samira Q will now do multiple additional checks to see if there are units on both the right and left of her. If there are, and importantly if there are no units far in front of her, she will use Sword Q. If a unit is far in front of her, she will still use Gun Q regardless of units on the right and left.": {
+          "attribute": {
+            "ko": "검·총 선택",
+            "en": "Sword or gun"
+          },
+          "value": {
+            "ko": "양옆에 적이 있고 전방 먼 곳에 적이 없으면 검을 사용합니다. 전방 먼 곳에 적이 있으면 총을 사용합니다.",
+            "en": "Uses the sword against enemies on either side if there is no distant enemy ahead. A distant enemy ahead triggers the gun."
+          }
+        },
+        "Itchy Trigger Finger | Samira Q is now properly sealed during her passive. This resolves a case where Samira Q can go on cooldown despite not being used if pressed during her passive’s animation. This also applies to an instance where her ultimate was cast after her W.": {
+          "attribute": {
+            "ko": "패시브 발동 중",
+            "en": "During the passive attack"
+          },
+          "value": {
+            "ko": "패시브 공격 동작 중에는 Q 사용 불가",
+            "en": "Q cannot be cast during the passive attack animation"
+          }
+        },
+        "Can’t Out-Walk Me | Samira Q will now do a check to see if the enemy is walking away from her and in the very last part of her Sword Q’s range. If so, she will instead use Gun Q. This should resolve the extreme cases where champions can simply walk away from her Q at very low move speed (higher move speeds will still likely be able to do so, rightfully.)": {
+          "attribute": {
+            "ko": "검 사거리 끝",
+            "en": "Edge of sword range"
+          },
+          "value": {
+            "ko": "검 사거리 끝에서 멀어지는 적에게는 총을 사용",
+            "en": "Uses the gun against an enemy moving away at the edge of sword range"
+          }
+        }
+      }
+    }
+  },
+  "Seraphine": {
+    "Q": {
+      "rows": {
+        "Current behavior | Amplified damage at low HP now also affects monsters": {
+          "attribute": {
+            "ko": "몬스터 대상 피해",
+            "en": "Monster damage"
+          },
+          "value": {
+            "ko": "체력이 낮은 몬스터에게도 피해 증가 적용",
+            "en": "The low-health damage bonus also applies to monsters"
+          }
+        }
+      }
+    }
+  },
+  "Yunara": {
+    "W": {
+      "rows": {
+        "Slow Stacking | No longer stacks with other slows": {
+          "value": {
+            "ko": "다른 둔화와 중첩되지 않음",
+            "en": "Does not stack with other slows"
+          }
+        }
+      }
+    }
+  },
+  "Yuumi": {
+    "R": {
+      "rows": {
+        "Attached-ally healing fix | Healing another ally no longer grants an additional heal to the attached ally": {
+          "attribute": {
+            "ko": "밀착 대상 회복",
+            "en": "Healing the attached ally"
+          },
+          "value": {
+            "ko": "다른 아군을 회복할 때 밀착 대상에게 추가 회복이 발생하지 않음",
+            "en": "Healing another ally does not trigger an extra heal on the attached ally"
+          }
+        }
+      }
+    }
+  },
+  "Zeri": {
+    "Q": {
+      "rows": {
+        "Current behavior | Now forced quick cast": {
+          "attribute": {
+            "ko": "시전 방식",
+            "en": "Cast type"
+          },
+          "value": {
+            "ko": "즉시 시전",
+            "en": "Uses quick cast"
+          }
+        }
+      }
+    }
+  },
+  "Zilean": {
+    "W": {
+      "rows": {
+        "W Level Up | No longer can level W at level 1.": {
+          "attribute": {
+            "ko": "습득 조건",
+            "en": "Level requirement"
+          },
+          "value": {
+            "ko": "챔피언 2레벨부터 습득 가능",
+            "en": "Can be learned from champion level 2"
+          }
+        }
+      }
+    }
+  }
+}
