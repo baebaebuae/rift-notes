@@ -78,7 +78,31 @@ function verified(){const v=overrides[lang]?.[current.id];return v?.version===me
 function hero(){const c=current,splash=`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${c.id}_0.jpg`;return `<div class="breadcrumb"><span>${t('챔피언 도감','Champions')}</span><span>›</span><strong>${esc(c.name)}</strong></div><section class="hero" aria-label="${esc(t(c.name+' 소개','About '+c.name))}"><img class="hero-art" src="${c.id==='Ahri'?'assets/ahri-splash.jpg':splash}" alt="" fetchpriority="high"><div class="hero-shade"></div><div class="hero-content"><div class="eyebrow">${t('오늘 살펴볼 챔피언','CHAMPION SPOTLIGHT')}</div><h1>${esc(c.name)}</h1>${lang==='en'?'':`<div class="english">${t('스킬과 변화의 기록','')}</div>`}<div class="hero-description">${esc(c.title)}</div><div class="tags">${c.tags.map(r=>`<span class="tag">${esc(roleName(r))}</span>`).join('')}<span class="tag patch">${t(meta.patch+' 능력치 기준','Stats: patch '+meta.patch)}</span></div></div><div class="hero-actions"><button id="favorite" aria-label="${favorites.has(c.id)?t('즐겨찾기 해제','Remove favorite'):t('즐겨찾기 저장','Save favorite')}" aria-pressed="${favorites.has(c.id)}">${favorites.has(c.id)?'★':'☆'}</button><button id="share" aria-label="${t('챔피언 링크 복사','Copy champion link')}">↗</button></div><div class="hero-caption">${t('챔피언을 더 깊이.','KNOW YOUR CHAMPION.')}</div></section><nav class="sectionnav"><a class="active" href="#overview">${t('스킬 · 능력치','Abilities & stats')}</a><a href="#history">${t('패치 기록','Patch history')} <span class="muted">${c.history.length}</span></a><a class="patchlink" target="_blank" rel="noopener" href="${officialNews()}">${t('공식 패치 노트','Official patch notes')} ↗</a></nav>`}
 function growth(l){return(.7025+.0175*(l-1))*(l-1)}
 function statValue(key){const s=current.effectiveStats||current.stats,g=s[key+'perlevel']??(key==='attackdamage'?current.attackDamageGrowth?.value:undefined);return(s[key]||0)+(g||0)*growth(level)}
-function renderStats(){const s=current.effectiveStats||current.stats,defs=[['hp',t('체력','Health'),'♡'],['mp',current.partype||t('자원','Resource'),'◈'],['attackdamage',t('공격력','Attack damage'),'⚔'],['armor',t('방어력','Armor'),'⬡'],['spellblock',t('마법 저항력','Magic resist'),'◇'],['movespeed',t('이동 속도','Move speed'),'↟']];$('#statCards').innerHTML=defs.map(([k,name,icon])=>`<div class="stat"><div class="stat-label"><span class="stat-icon">${icon}</span>${esc(name)}</div><div class="stat-value">${k==='attackdamage'&&level>1&&current.attackDamageGrowth?.value==null?t('확인 필요','Unknown'):num(statValue(k))}</div><div class="stat-sub">${k==='attackdamage'?current.attackDamageGrowth?.value!=null?`${t('보완 성장 계수','Adjusted growth')} <strong>+${num(current.attackDamageGrowth.value)}</strong>`:t('성장값 미제공','Growth unavailable'):s[k+'perlevel']?`${t('성장 계수','Growth')} <strong>+${num(s[k+'perlevel'])}</strong>`:t('고정 기본값','Fixed base value')}</div></div>`).join('');$('#levelLabel').textContent=t(`${level}레벨`,`Lv. ${level}`);$('#statDetails').innerHTML=`<span>${t('기본 공격 속도','Base attack speed')} <b>${num(s.attackspeed)}</b> · ${t('성장','growth')} ${num(s.attackspeedperlevel)}%</span><span>${t('사거리','Attack range')} <b>${num(s.attackrange)}</b></span><span>${t('체력 재생 / 5초','Health regen / 5s')} <b>${num(statValue('hpregen'))}</b></span><span>${t('자원 재생 / 5초','Resource regen / 5s')} <b>${num(statValue('mpregen'))}</b></span>`;if(current.statConflicts?.length)$('#statDetails').innerHTML+=`<span class="stat-source-note">${t('일부 이전 패치의 능력치와 현재 공식 데이터가 다릅니다. 위 표는 현재 공식 데이터를 유지합니다.','Some older patch values differ from current official data. The table retains current official values.')}</span>`}
+function renderStats(){
+ const s=current.effectiveStats||current.stats;
+ const defs=[
+  ['hp',t('체력','Health'),'♡'],['mp',current.partype||t('자원','Resource'),'◈'],
+  ['attackdamage',t('공격력','Attack damage'),'⚔'],['armor',t('방어력','Armor'),'⬡'],
+  ['spellblock',t('마법 저항력','Magic resist'),'◇'],['movespeed',t('이동 속도','Move speed'),'↟'],
+  ['attackrange',t('기본 공격 사거리','Basic attack range'),'◎']
+ ];
+ $('#statCards').innerHTML=defs.map(([key,name,icon])=>{
+  let value=num(statValue(key));
+  let caption=t('고정 기본값','Fixed base value');
+  if(key==='attackrange'){
+   value=Number.isFinite(s.attackrange)?num(s.attackrange):'—';
+   caption=t('추가 효과 제외','Before bonuses');
+   if(current.id==='Gnar')caption=t('메가 나르 기준','Mega Gnar');
+  }else if(key==='attackdamage'){
+   const growthValue=current.attackDamageGrowth?.value;
+   if(level>1 && growthValue==null)value=t('확인 필요','Unknown');
+   caption=growthValue==null?t('성장값 미제공','Growth unavailable'):`${t('보완 성장 계수','Adjusted growth')} <strong>+${num(growthValue)}</strong>`;
+  }else if(s[key+'perlevel']){
+   caption=`${t('성장 계수','Growth')} <strong>+${num(s[key+'perlevel'])}</strong>`;
+  }
+  return `<div class="stat" data-stat="${key}"><div class="stat-label"><span class="stat-icon" aria-hidden="true">${icon}</span>${esc(name)}</div><div class="stat-value">${value}</div><div class="stat-sub">${caption}</div></div>`;
+ }).join('');
+ $('#levelLabel').textContent=t(`${level}레벨`,`Lv. ${level}`);$('#statDetails').innerHTML=`<span>${t('기본 공격 속도','Base attack speed')} <b>${num(s.attackspeed)}</b> · ${t('성장','growth')} ${num(s.attackspeedperlevel)}%</span><span>${t('체력 재생 / 5초','Health regen / 5s')} <b>${num(statValue('hpregen'))}</b></span><span>${t('자원 재생 / 5초','Resource regen / 5s')} <b>${num(statValue('mpregen'))}</b></span>`;if(current.statConflicts?.length)$('#statDetails').innerHTML+=`<span class="stat-source-note">${t('일부 이전 패치의 능력치와 현재 공식 데이터가 다릅니다. 위 표는 현재 공식 데이터를 유지합니다.','Some older patch values differ from current official data. The table retains current official values.')}</span>`}
 function label(s){return lang==='en'?s:glossary.labels?.[s]||s}
 function unit(s){return lang==='en'?String(s||''):glossary.units?.[s]??String(s||'')}
 function historyText(s){return lang==='ko'?glossary.history?.[s]||s:s}

@@ -23,7 +23,7 @@ function create({url='https://rift.example/?champion=Ahri',random=.5,width=1200,
 }
 async function main(){
  const app=create(),{w,d,$,$$}=app;await app.ready('Ahri');
- assert.equal($$('.spell').length,5);assert.equal($$('.stat').length,6);assert.equal($$('.champion-item').length,173);assert($$('.patch-card').length>0);
+ assert.equal($$('.spell').length,5);assert.equal($$('.stat').length,7);assert.equal($$('.champion-item').length,173);assert($$('.patch-card').length>0);
  assert.equal(w.getComputedStyle($('.spell-desc')).fontSize,'14px');assert.equal(w.getComputedStyle($('.formula-value')).fontSize,'15px');
  const search=$('#search');for(const query of ['아리','Ahri','ㅇㄹ']){search.value=query;search.dispatchEvent(new w.Event('input'));assert($('[data-champion="Ahri"]'),query)}
  search.value='없는챔피언';search.dispatchEvent(new w.Event('input'));assert($('.list-empty'));search.value='';search.dispatchEvent(new w.Event('input'));

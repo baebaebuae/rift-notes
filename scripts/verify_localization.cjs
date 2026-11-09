@@ -33,6 +33,13 @@ async function main(){
    assert(!/(공식 (변경|문서|패치)|기존 자료|후속 변경|반영한 공식|보관본|patch notes|changes applied through|archived (?:detail|condition)|\b(?:25|26)\.\d+ (?=notes|patch|원문|공식)|\((?:25|26)\.\d+\))/i.test(cards.textContent),champion.id+' card includes patch commentary');
    assert.equal(page.$$('#timeline .patch-card').length>0,(page===ko?a:b).history.length>0);
   }
+  for(const [page,champ,label] of [[ko,a,'기본 공격 사거리'],[en,b,'Basic attack range']]){
+   const rangeCard=page.$('[data-stat="attackrange"]');
+   assert.equal(page.$$('#statCards .stat').length,7);
+   assert(rangeCard.querySelector('.stat-label').textContent.includes(label));
+   assert.equal(rangeCard.querySelector('.stat-value').textContent,String(champ.effectiveStats.attackrange));
+   assert(!page.$('#statDetails').textContent.includes(page===ko?'사거리':'Attack range'));
+  }
   const tags=ko.$$('.stat-value').map(x=>x.textContent);assert.deepEqual(en.$$('.stat-value').map(x=>x.textContent),tags,champion.id+' displayed level1 stats');
   // Prose-only passives were silently dropped when their table rows were empty.
   const sourceEffects=a.details.skills.P.effects;
