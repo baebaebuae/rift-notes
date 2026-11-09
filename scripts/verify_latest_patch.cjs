@@ -42,6 +42,19 @@ async function main(){
    }
   }
   await page.select('Darius');assert(page.$('article[data-skill="Q"] .spell-meta').textContent.includes('9/8/7/6/4'));assert(!page.$('article[data-skill="Q"]').textContent.includes('9/7.75/6.5/5.25/4'));
+  const distanceRows=slot=>page.$$('article[data-skill="'+slot+'"] .spell-range').map(row=>[
+   row.querySelector('.flabel').textContent,row.querySelector('.formula-value').textContent
+  ]);
+  const ko=language==='ko';
+  assert.deepEqual(distanceRows('Q'),[[ko?'전체 타격 반경':'Outer hit radius','460'],[ko?'도끼자루 반경':'Handle radius','240']]);
+  assert.deepEqual(distanceRows('W'),[[ko?'기본 공격 추가 사거리':'Bonus attack range','+25']]);
+  assert.deepEqual(distanceRows('R'),[[ko?'시전 사거리':'Cast range','475']]);
+  await page.select('Janna');assert.deepEqual(distanceRows('W'),[[ko?'시전 사거리':'Cast range','550']]);
+  await page.select('Hecarim');assert.equal(distanceRows('R')[0][1],'300–1000');
+  await page.select('Gwen');assert.deepEqual(distanceRows('W'),[[ko?'안개 반경':'Mist radius','480']]);
+  await page.select('Garen');assert.deepEqual(distanceRows('W'),[],'no cast range for a self buff');
+  await page.select('Soraka');assert.deepEqual(distanceRows('R'),[[ko?'효과 범위':'Area of effect',ko?'전역':'Global']]);
+  await page.select('Briar');assert.equal(distanceRows('R')[0][1],'12000','confirmed long range');
   await page.select('Jinx');assert.equal(page.$('.stat-value').textContent,'610');page.$('#level').value=18;page.$('#level').dispatchEvent(new page.w.Event('input'));assert.equal(page.$$('.stat-value')[2].textContent,'110');
   await page.select('MissFortune');const r=page.$('article[data-skill="R"]');r.querySelector('[data-expand]').click();assert.equal(r.querySelector('[data-expand]').getAttribute('aria-expanded'),'true');assert(r.textContent.includes('145%'));assert(!r.textContent.match(/25000|Global|전역/));
   await page.select('Shyvana');assert.equal(page.$$('article[data-skill]').length,5,'all reworked abilities shown');
@@ -65,6 +78,7 @@ async function main(){
    return Promise.resolve({ok:true,json:async()=>champion});
   }});
   await legacy.ready('Darius');
+  assert(!legacy.$('article[data-skill="Q"] .spell-range'),'old data must not expose range 1');
   assert.match(legacy.$('article[data-skill="Q"] .spell-meta').textContent,/9\/8\/7\/6\/4/);
   assert(!legacy.$('#spells').querySelector('a,details.archive-details'));
   assert(!/⇒|→|보관본|archived values/i.test(legacy.$('#spells').textContent));

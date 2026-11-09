@@ -1,0 +1,704 @@
+{
+  "patch": "26.22",
+  "skills": {
+    "Ahri": {
+      "Q": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Ahri",
+        "rows": [
+          {
+            "ko": "구슬 이동 거리",
+            "en": "Orb travel distance",
+            "value": "900"
+          }
+        ]
+      },
+      "W": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Ahri",
+        "rows": [
+          {
+            "ko": "일반 대상 탐색 반경",
+            "en": "Normal target acquisition radius",
+            "value": "550"
+          },
+          {
+            "ko": "우선 대상 탐색 반경",
+            "en": "Priority target acquisition radius",
+            "value": "725"
+          }
+        ]
+      },
+      "E": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Ahri",
+        "rows": [
+          {
+            "ko": "사거리",
+            "en": "Range",
+            "value": "1000"
+          }
+        ]
+      },
+      "R": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Ahri",
+        "rows": [
+          {
+            "ko": "돌진 거리",
+            "en": "Dash distance",
+            "value": "500"
+          },
+          {
+            "ko": "혼령탄 탐색 반경",
+            "en": "Bolt acquisition radius",
+            "value": "600"
+          }
+        ]
+      }
+    },
+    "Amumu": {
+      "R": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Amumu",
+        "rows": [
+          {
+            "ko": "효과 반경",
+            "en": "Effect radius",
+            "value": "550"
+          }
+        ]
+      }
+    },
+    "Ashe": {
+      "E": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Ashe",
+        "rows": [
+          {
+            "ko": "시전 사거리",
+            "en": "Cast range",
+            "value": {
+              "ko": "전역",
+              "en": "Global"
+            }
+          }
+        ]
+      },
+      "R": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Ashe",
+        "rows": [
+          {
+            "ko": "사거리",
+            "en": "Range",
+            "value": {
+              "ko": "전역",
+              "en": "Global"
+            }
+          }
+        ]
+      },
+      "Q": {
+        "source": "https://ddragon.leagueoflegends.com/cdn/16.22.1/data/en_US/champion/Ashe.json",
+        "rows": []
+      }
+    },
+    "Bard": {
+      "Q": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Bard",
+        "rows": [
+          {
+            "ko": "최초 적중 사거리",
+            "en": "Initial hit range",
+            "value": "850"
+          }
+        ]
+      }
+    },
+    "Camille": {
+      "Q": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Camille",
+        "rows": [
+          {
+            "ko": "기본 공격 추가 사거리",
+            "en": "Bonus attack range",
+            "value": "+50"
+          }
+        ]
+      }
+    },
+    "Chogath": {
+      "E": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Cho%27Gath",
+        "rows": [
+          {
+            "ko": "기본 공격 추가 사거리",
+            "en": "Bonus attack range",
+            "value": "+50"
+          },
+          {
+            "ko": "가시 사거리",
+            "en": "Spike range",
+            "value": "650"
+          }
+        ]
+      }
+    },
+    "Darius": {
+      "Q": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Template%3AData_Darius/Decimate",
+        "rows": [
+          {
+            "ko": "전체 타격 반경",
+            "en": "Outer hit radius",
+            "value": "460"
+          },
+          {
+            "ko": "도끼자루 반경",
+            "en": "Handle radius",
+            "value": "240"
+          }
+        ]
+      },
+      "W": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Template%3AData_Darius/Crippling_Strike",
+        "rows": [
+          {
+            "ko": "기본 공격 추가 사거리",
+            "en": "Bonus attack range",
+            "value": "+25"
+          }
+        ]
+      },
+      "E": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Template%3AData_Darius/Apprehend",
+        "rows": [
+          {
+            "ko": "효과 반경",
+            "en": "Effect radius",
+            "value": "535"
+          }
+        ]
+      },
+      "R": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Template%3AData_Darius/Noxian_Guillotine",
+        "rows": [
+          {
+            "ko": "시전 사거리",
+            "en": "Cast range",
+            "value": "475"
+          }
+        ]
+      }
+    },
+    "DrMundo": {
+      "E": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Dr._Mundo",
+        "rows": [
+          {
+            "ko": "기본 공격 추가 사거리",
+            "en": "Bonus attack range",
+            "value": "+50"
+          },
+          {
+            "ko": "시체가 날아가는 거리",
+            "en": "Corpse travel distance",
+            "value": "650"
+          }
+        ]
+      }
+    },
+    "Draven": {
+      "R": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Draven",
+        "rows": [
+          {
+            "ko": "사거리",
+            "en": "Range",
+            "value": {
+              "ko": "전역",
+              "en": "Global"
+            }
+          }
+        ]
+      },
+      "W": {
+        "source": "https://ddragon.leagueoflegends.com/cdn/16.22.1/data/en_US/champion/Draven.json",
+        "rows": []
+      }
+    },
+    "Ezreal": {
+      "R": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Ezreal",
+        "rows": [
+          {
+            "ko": "사거리",
+            "en": "Range",
+            "value": {
+              "ko": "전역",
+              "en": "Global"
+            }
+          }
+        ]
+      }
+    },
+    "Fiora": {
+      "E": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Fiora",
+        "rows": [
+          {
+            "ko": "기본 공격 추가 사거리",
+            "en": "Bonus attack range",
+            "value": "+25"
+          }
+        ]
+      }
+    },
+    "Gangplank": {
+      "R": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Gangplank",
+        "rows": [
+          {
+            "ko": "시전 사거리",
+            "en": "Cast range",
+            "value": {
+              "ko": "전역",
+              "en": "Global"
+            }
+          }
+        ]
+      },
+      "W": {
+        "source": "https://ddragon.leagueoflegends.com/cdn/16.22.1/data/en_US/champion/Gangplank.json",
+        "rows": []
+      }
+    },
+    "Garen": {
+      "E": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Garen",
+        "rows": [
+          {
+            "ko": "효과 반경",
+            "en": "Effect radius",
+            "value": "325"
+          }
+        ]
+      }
+    },
+    "Gnar": {
+      "W": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Gnar",
+        "rows": [
+          {
+            "ko": "메가 나르 타격 거리",
+            "en": "Mega Gnar strike range",
+            "value": "550"
+          }
+        ]
+      }
+    },
+    "Gragas": {
+      "W": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Gragas",
+        "rows": [
+          {
+            "ko": "강화 공격 피해 반경",
+            "en": "Empowered attack damage radius",
+            "value": "250"
+          }
+        ]
+      }
+    },
+    "Gwen": {
+      "W": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Gwen",
+        "rows": [
+          {
+            "ko": "안개 반경",
+            "en": "Mist radius",
+            "value": "480"
+          }
+        ]
+      }
+    },
+    "Hecarim": {
+      "R": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Hecarim",
+        "rows": [
+          {
+            "ko": "돌진 거리",
+            "en": "Dash distance",
+            "value": "300–1000"
+          },
+          {
+            "ko": "기수 사거리",
+            "en": "Rider reach",
+            "value": "1510"
+          },
+          {
+            "ko": "공포 반경",
+            "en": "Fear radius",
+            "value": "315"
+          }
+        ]
+      },
+      "E": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Hecarim",
+        "rows": [
+          {
+            "ko": "기본 공격 추가 사거리",
+            "en": "Bonus attack range",
+            "value": "+50–250"
+          }
+        ]
+      }
+    },
+    "Illaoi": {
+      "W": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Illaoi",
+        "rows": [
+          {
+            "ko": "기본 공격 추가 사거리",
+            "en": "Bonus attack range",
+            "value": "+225"
+          }
+        ]
+      }
+    },
+    "Janna": {
+      "W": {
+        "source": "https://www.leagueoflegends.com/en-gb/news/game-updates/patch-13-23-notes/",
+        "rows": [
+          {
+            "ko": "시전 사거리",
+            "en": "Cast range",
+            "value": "550"
+          }
+        ]
+      },
+      "Q": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Janna",
+        "rows": [
+          {
+            "ko": "충전 시간에 따른 사거리",
+            "en": "Range by charge time",
+            "value": "1100–1760"
+          }
+        ]
+      }
+    },
+    "Jhin": {
+      "R": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Jhin",
+        "rows": [
+          {
+            "ko": "사거리",
+            "en": "Range",
+            "value": "3500"
+          }
+        ]
+      }
+    },
+    "Jinx": {
+      "R": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Jinx",
+        "rows": [
+          {
+            "ko": "사거리",
+            "en": "Range",
+            "value": {
+              "ko": "전역",
+              "en": "Global"
+            }
+          }
+        ]
+      }
+    },
+    "Karma": {
+      "R": {
+        "source": "https://ddragon.leagueoflegends.com/cdn/16.22.1/data/en_US/champion/Karma.json",
+        "rows": []
+      }
+    },
+    "Karthus": {
+      "R": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Karthus",
+        "rows": [
+          {
+            "ko": "효과 범위",
+            "en": "Area of effect",
+            "value": {
+              "ko": "전역",
+              "en": "Global"
+            }
+          }
+        ]
+      }
+    },
+    "Kassadin": {
+      "W": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Kassadin",
+        "rows": [
+          {
+            "ko": "기본 공격 추가 사거리",
+            "en": "Bonus attack range",
+            "value": "+50"
+          }
+        ]
+      }
+    },
+    "Kayn": {
+      "E": {
+        "source": "https://ddragon.leagueoflegends.com/cdn/16.22.1/data/en_US/champion/Kayn.json",
+        "rows": []
+      }
+    },
+    "Leona": {
+      "Q": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Leona",
+        "rows": [
+          {
+            "ko": "기본 공격 추가 사거리",
+            "en": "Bonus attack range",
+            "value": "+50"
+          }
+        ]
+      }
+    },
+    "Malphite": {
+      "W": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Malphite",
+        "rows": [
+          {
+            "ko": "기본 공격 추가 사거리",
+            "en": "Bonus attack range",
+            "value": "+50"
+          }
+        ]
+      }
+    },
+    "Mel": {
+      "W": {
+        "source": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/#patch-mel",
+        "rows": []
+      }
+    },
+    "MissFortune": {
+      "R": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Miss_Fortune",
+        "rows": [
+          {
+            "ko": "부채꼴 사거리",
+            "en": "Cone reach",
+            "value": "1450"
+          }
+        ]
+      },
+      "W": {
+        "source": "https://ddragon.leagueoflegends.com/cdn/16.22.1/data/en_US/champion/MissFortune.json",
+        "rows": []
+      }
+    },
+    "Nasus": {
+      "Q": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Nasus",
+        "rows": [
+          {
+            "ko": "기본 공격 추가 사거리",
+            "en": "Bonus attack range",
+            "value": "+50"
+          }
+        ]
+      }
+    },
+    "Olaf": {
+      "W": {
+        "source": "https://ddragon.leagueoflegends.com/cdn/16.22.1/data/en_US/champion/Olaf.json",
+        "rows": []
+      },
+      "R": {
+        "source": "https://ddragon.leagueoflegends.com/cdn/16.22.1/data/en_US/champion/Olaf.json",
+        "rows": []
+      }
+    },
+    "Renekton": {
+      "R": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Renekton",
+        "rows": [
+          {
+            "ko": "주변 피해 반경",
+            "en": "Damage aura radius",
+            "value": "375"
+          }
+        ]
+      }
+    },
+    "Rengar": {
+      "Q": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Rengar",
+        "rows": [
+          {
+            "ko": "기본 공격 추가 사거리",
+            "en": "Bonus attack range",
+            "value": "+25"
+          }
+        ]
+      }
+    },
+    "Senna": {
+      "R": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Senna",
+        "rows": [
+          {
+            "ko": "사거리",
+            "en": "Range",
+            "value": {
+              "ko": "전역",
+              "en": "Global"
+            }
+          }
+        ]
+      }
+    },
+    "Seraphine": {
+      "R": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Template%3AData_Seraphine/Encore",
+        "rows": [
+          {
+            "ko": "최초 사거리",
+            "en": "Initial range",
+            "value": "1300"
+          }
+        ]
+      }
+    },
+    "Shen": {
+      "R": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Shen",
+        "rows": [
+          {
+            "ko": "시전 사거리",
+            "en": "Cast range",
+            "value": {
+              "ko": "전역",
+              "en": "Global"
+            }
+          }
+        ]
+      }
+    },
+    "Singed": {
+      "Q": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Singed",
+        "rows": [
+          {
+            "ko": "독구름 반경",
+            "en": "Poison cloud radius",
+            "value": "180"
+          }
+        ]
+      }
+    },
+    "Sion": {
+      "Q": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Template%3AData_Sion/Decimating_Smash",
+        "rows": [
+          {
+            "ko": "충전 시간에 따른 사거리",
+            "en": "Range by charge time",
+            "value": "500–850"
+          }
+        ]
+      }
+    },
+    "Sivir": {
+      "W": {
+        "source": "https://www.leagueoflegends.com/en-au/news/game-updates/patch-12-13-notes/",
+        "rows": [
+          {
+            "ko": "튕기는 거리",
+            "en": "Bounce range",
+            "value": "500"
+          }
+        ]
+      }
+    },
+    "Soraka": {
+      "R": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Soraka",
+        "rows": [
+          {
+            "ko": "효과 범위",
+            "en": "Area of effect",
+            "value": {
+              "ko": "전역",
+              "en": "Global"
+            }
+          }
+        ]
+      }
+    },
+    "TahmKench": {
+      "E": {
+        "source": "https://ddragon.leagueoflegends.com/cdn/16.22.1/data/en_US/champion/TahmKench.json",
+        "rows": []
+      }
+    },
+    "Tryndamere": {
+      "Q": {
+        "source": "https://ddragon.leagueoflegends.com/cdn/16.22.1/data/en_US/champion/Tryndamere.json",
+        "rows": []
+      },
+      "R": {
+        "source": "https://ddragon.leagueoflegends.com/cdn/16.22.1/data/en_US/champion/Tryndamere.json",
+        "rows": []
+      }
+    },
+    "TwistedFate": {
+      "Q": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Twisted_Fate",
+        "rows": [
+          {
+            "ko": "사거리",
+            "en": "Range",
+            "value": "1450"
+          }
+        ]
+      },
+      "W": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Twisted_Fate",
+        "rows": [
+          {
+            "ko": "빨간색 카드 피해 반경",
+            "en": "Red Card damage radius",
+            "value": "325"
+          }
+        ]
+      }
+    },
+    "Yorick": {
+      "Q": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Yorick",
+        "rows": [
+          {
+            "ko": "기본 공격 추가 사거리",
+            "en": "Bonus attack range",
+            "value": "+50"
+          }
+        ]
+      }
+    },
+    "Yunara": {
+      "Q": {
+        "source": "https://wiki.leagueoflegends.com/en-us/Yunara",
+        "rows": [
+          {
+            "ko": "대상 주변 피해 반경",
+            "en": "Splash radius",
+            "value": "300"
+          }
+        ]
+      }
+    },
+    "Zilean": {
+      "W": {
+        "source": "https://ddragon.leagueoflegends.com/cdn/16.22.1/data/en_US/champion/Zilean.json",
+        "rows": []
+      }
+    }
+  }
+}

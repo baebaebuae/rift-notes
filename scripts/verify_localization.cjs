@@ -20,8 +20,14 @@ async function main(){
    const text=el.textContent.replace(/(?<![A-Za-z])(?:AP|AD|[PQWER]{1,2}|H-28G|H-28Q|CH-2|CH-3X)(?![A-Za-z])/g,'');
    if(/[A-Za-z]{2,}/.test(text)||/%i:/.test(text))leftovers.push([champion.id,text]);
   }
+  const distanceText=page=>page.$$('.spell-range .formula-value').map(node=>node.textContent.replace('전역','Global'));
+  assert.deepEqual(distanceText(ko),distanceText(en),champion.id+' localized distances');
   for(const page of [ko,en]){
    const cards=page.$('#spells');
+   for(const row of cards.querySelectorAll('.spell-range .formula-value')){
+    assert(!/^(?:0|1|20|40|100|25000|4294967295)$/.test(row.textContent),champion.id+' raw cast parameter shown');
+   }
+
    assert(!cards.querySelector('a,.spell-source,.spell-data-note,.value-provenance,.review-sources,.passive-baseline'));
    assert(!page.$('.quality-note'));
    assert(!/(공식 (변경|문서|패치)|기존 자료|후속 변경|반영한 공식|보관본|patch notes|changes applied through|archived (?:detail|condition)|\b(?:25|26)\.\d+ (?=notes|patch|원문|공식)|\((?:25|26)\.\d+\))/i.test(cards.textContent),champion.id+' card includes patch commentary');

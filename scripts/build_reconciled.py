@@ -122,6 +122,13 @@ def main():
     assert set(profiles) == {c['id'] for c in index['champions']}
     apply_review(profiles)
     apply_card_text(profiles)
+    distances = read(REVIEWS / 'spell-distances.json')
+    if distances['patch'] != PATCH:
+        raise ValueError('Review spell distances for the new patch before publishing')
+    for champion, slots in distances['skills'].items():
+        for key in slots:
+            if key not in profiles[champion]['skills'] or key == 'P':
+                raise ValueError((champion, key, 'Invalid distance review'))
     revisions = inputs()
     lock = REVIEWS / 'source-revisions.json'
     if not args.record_review and (not lock.exists() or read(lock) != revisions):
@@ -159,6 +166,17 @@ def main():
                 skills[key] = {'status': skill['status'], 'notes': skill['notes'][lang], 'sources': local_sources(skill['sources']),
                                'effects': skill['effects'][lang],
                                'rows': [{**row, 'sources': local_sources(row['sources']), 'attribute': row['attribute'][lang], 'value': row['value'][lang]} for row in skill['rows']]}
+                distance = distances['skills'].get(champion, {}).get(key)
+                if distance is not None:
+                    # An empty list explicitly suppresses a raw cast parameter for this ability.
+                    skills[key]['distance'] = {
+                        'source': distance['source'],
+                        'rows': [
+                            {'label': row[lang],
+                             'value': row['value'][lang] if isinstance(row['value'], dict) else row['value']}
+                            for row in distance['rows']
+                        ]
+                    }
             d['details'] = {'version': VERSION, 'patch': PATCH, 'reviewedAt': REVIEW_DATE, 'skills': skills}
             d['effectiveStats'] = stats['stats']
             d['statConflicts'] = [{k: c[k] for k in ['field', 'value', 'dataDragon', 'patch', 'date', 'url']} for c in stats['conflicts']]
