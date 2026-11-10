@@ -1,7 +1,7 @@
 // DOM integration checks, without a browser install or external network.
 const fs=require('fs'),path=require('path'),assert=require('node:assert/strict');
 const {JSDOM}=require(process.env.RIFT_JSDOM||'jsdom');
-const root=path.resolve(__dirname,'../dist'),html=fs.readFileSync(path.join(root,'index.html'),'utf8'),script=fs.readFileSync(path.join(root,'app.js'),'utf8');
+const root=path.resolve(__dirname,'../dist'),html=fs.readFileSync(path.join(root,'index.html'),'utf8'),script=['forms.js','app.js'].map(file=>fs.readFileSync(path.join(root,file),'utf8')).join('\n');
 // JSDOM's default resource loader leaves external @imports unfetched.
 const css=fs.readFileSync(path.join(root,'styles.css'),'utf8');
 const data=file=>JSON.parse(fs.readFileSync(path.join(root,'data',file),'utf8')),champions=data('index.json').champions;
