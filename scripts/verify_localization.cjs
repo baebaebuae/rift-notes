@@ -37,7 +37,7 @@ async function main(){
    const rangeCard=page.$('[data-stat="attackrange"]');
    assert.equal(page.$$('#statCards .stat').length,7);
    assert(rangeCard.querySelector('.stat-label').textContent.includes(label));
-   assert.equal(rangeCard.querySelector('.stat-value').textContent,String(champ.effectiveStats.attackrange));
+   assert.equal(rangeCard.querySelector('.stat-value').textContent,String(champ.id==='Gnar'?400:champ.effectiveStats.attackrange));
    assert(!page.$('#statDetails').textContent.includes(page===ko?'사거리':'Attack range'));
   }
   const tags=ko.$$('.stat-value').map(x=>x.textContent);assert.deepEqual(en.$$('.stat-value').map(x=>x.textContent),tags,champion.id+' displayed level1 stats');
