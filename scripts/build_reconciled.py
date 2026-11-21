@@ -12,7 +12,7 @@ from reconcile_stats import reconcile_stats
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'dist/data'
 REVIEWS = ROOT / 'scripts/reconciled'
-VERSION, PATCH, REVIEW_DATE = '16.22.1', '26.22', '2026-11-07'
+VERSION, PATCH, REVIEW_DATE = '16.23.1', '26.23', '2026-11-21'
 
 
 def read(path):
@@ -46,9 +46,9 @@ def load_profiles():
     return profiles
 
 
-def apply_review(profiles):
+def apply_review(profiles, patch):
     """Layer newly reviewed rows over the five original through-26.21 profiles."""
-    updates = read(REVIEWS / 'updates-26.22.json')
+    updates = read(REVIEWS / f'updates-{patch}.json')
     for champion, slots in updates.items():
         for slot, update in slots.items():
             skill = profiles[champion]['skills'][slot]
@@ -75,10 +75,12 @@ def apply_review(profiles):
                     skill[field] = update[field]
             references = [ref for r in update['rows'] for ref in r['sources']]
             if update.get('tooltipSource'):
-                references.append({'patch': PATCH, 'date': REVIEW_DATE,
+                references.append({'patch': patch, 'date': '2026-11-07',
                                    'url': read(DATA / 'en' / (champion + '.json'))['source']})
             skill['sources'] = list({s['url']: s for s in skill['sources'] + references}.values())
 
+
+def apply_release_sources(profiles):
     for champion in ('Shyvana', 'Locke'):
         history = read(DATA / 'en' / (champion + '.json'))['history']
         release = next(h for h in history if h.get('release'))
@@ -120,8 +122,10 @@ def main():
     assert index['meta']['version'] == VERSION and index['meta']['patch'] == PATCH
     profiles = load_profiles()
     assert set(profiles) == {c['id'] for c in index['champions']}
-    apply_review(profiles)
+    apply_review(profiles, '26.22')
+    apply_release_sources(profiles)
     apply_card_text(profiles)
+    apply_review(profiles, '26.23')
     distances = read(REVIEWS / 'spell-distances.json')
     if distances['patch'] != PATCH:
         raise ValueError('Review spell distances for the new patch before publishing')
@@ -153,12 +157,12 @@ def main():
             path = DATA / (prefix + champion + '.json')
             d = read(path)
             skills = {}
-            current_note = next((h['url'] for h in d['history'] if h['patch'] == PATCH), None)
+            reviewed_notes = {h['patch']: h['url'] for h in d['history'] if h['patch'] in ('26.22', '26.23') and not h.get('isHotfix')}
             def local_sources(sources):
                 # Use the matching article in the display language. Leave historical
                 # source-language corrections (such as Elise Q in Korean) intact.
-                return [{**source, 'url': current_note}
-                        if current_note and source['patch'] == PATCH and '/news/game-updates/' in source['url']
+                return [{**source, 'url': reviewed_notes[source['patch']]}
+                        if source['patch'] in reviewed_notes and '/news/game-updates/' in source['url']
                         else {**source, 'url': d['source']} if source['url'].endswith('/champion/' + champion + '.json')
                         else source for source in sources]
 

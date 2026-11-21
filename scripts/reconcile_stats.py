@@ -9,7 +9,7 @@ import re
 BASE = {
     'health': 'hp', 'hp': 'hp', 'mana': 'mp', 'armor': 'armor', 'ar': 'armor',
     'magic resistance': 'spellblock', 'magic resist': 'spellblock',
-    'attack damage': 'attackdamage', 'ad': 'attackdamage',
+    'attack range': 'attackrange', 'attack damage': 'attackdamage', 'ad': 'attackdamage',
     'attack speed': 'attackspeed', 'as': 'attackspeed',
     'move speed': 'movespeed', 'movement speed': 'movespeed',
     'health regeneration': 'hpregen', 'health regen': 'hpregen',

@@ -18,6 +18,12 @@
 - 스킬 설명 14px·상세 수치 15px (모바일 14px), 스킬 이름 17px, 긴 계수 줄바꿈
 - 첫 랜덤 챔피언으로 뒤로 가기 복원, 모바일 검색 배경 닫기, 요청 시간 초과 및 재시도
 
+## 26.23 업데이트 (2026-11-21 검토)
+
+- 소환사의 협곡 챔피언 13명의 변경 25건을 한국어·영어 스킬, 기본 능력치, 패치 기록에 반영했습니다. 두 언어의 기본 데이터는 Riot Data Dragon 16.23.1입니다.
+- 아지르의 기본 공격 사거리는 550입니다. 나르 Q는 미니와 메가의 공격력 계수를 각각 표시하고, 갈리오 R의 아군 보호막은 W 랭크를 따릅니다.
+- [한국어 패치 노트](https://www.leagueoflegends.com/ko-kr/news/game-updates/league-of-legends-patch-26-23-notes/) · [영어 패치 노트](https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/)
+
 ## 26.22 업데이트 (2026-11-07 검토)
 
 - 소환사의 협곡 챔피언 14명의 공식 변경 44건을 한국어·영어 패치 기록에 반영했습니다. 멜의 패시브부터 궁극기까지 개편 수치를 적용하고, 피해 합계처럼 이전 식에서 계산하던 값도 갱신했습니다.
@@ -36,7 +42,7 @@
 
 ## 데이터 구분과 한계
 
-1. 현재 기본 능력치와 공식 요약: Riot Data Dragon 16.22.1 (게임 패치 26.22).
+1. 현재 기본 능력치와 공식 요약: Riot Data Dragon 16.23.1 (게임 패치 26.23).
 2. 상세 계수의 출발점: Meraki Analytics 보관본. 이미지 경로의 `15.15.1`은 모든 수치가 25.15에서 검증됐다는 뜻이 아닙니다. 후속 공식 변경을 적용했더라도 변경되지 않은 기존 값의 정확성을 모두 보장하지 않습니다.
 3. 각 챔피언 JSON의 `details`는 검토한 통합 표시 자료입니다. `patch`는 공식 변경값, `derived`는 기존 식에 변경을 적용한 계산값, `baseline`은 기존 자료입니다. 원래 `formulas`는 보존합니다. 예전 `verified.json`은 하위 호환을 위한 대체 표시 자료입니다.
 4. Data Dragon 공격력 성장값이 0으로 제공된 문제는 보관본과 이후 공식 변경으로 보완합니다. 확인할 수 없는 신규 챔피언은 성장값 미제공으로 표시합니다. 레벨 계산은 1~18이며 역할군 퀘스트 등 게임 내 추가 효과는 포함하지 않습니다.
@@ -63,7 +69,7 @@ python scripts/reconciled/build_group_5.py
 python scripts/build_reconciled.py
 ```
 
-`RIFT_CACHE`로 다운로드 임시 캐시 경로를 지정할 수 있습니다. 각 챔피언 JSON에 현재 공식 데이터 URL, 보관본 URL, 버전, 패치 이력을 남깁니다. 재수집 후 모든 변경 수치를 재검토해야 합니다. `scripts/reconciled/source-revisions.json`은 검토한 KO/EN 입력의 지문을 고정합니다. 입력이 바뀌면 `build_reconciled.py`가 거부합니다. 새 패치를 실제로 검토한 후에만 버전·날짜·생성기를 갱신하고 `python scripts/build_reconciled.py --record-review`로 검토 지문을 기록합니다. 26.22 변경과 과거 누락 사항의 검토 원본은 `scripts/reconciled/updates-26.22.json`에 있습니다. `RIFT_REFRESH_FROM=25.15`로 해당 패치 이후 문서를 재수집할 수 있습니다. 수집기는 검증값을 자동으로 최신이라고 바꾸지 않습니다. 새 패치가 추가되면 URL 형식과 HTML 파싱 결과도 검토해야 합니다. 영어 수집기는 한국어 목록에 저장된 버전을 사용하며, 영어와 한국어 문서의 수집 범위·기록 수는 다를 수 있습니다. `scripts/locales/ko-exact.json` 및 번역 생성기의 용어 사전도 신규 항목에 맞게 검토해야 합니다. 번역은 표시 문구에만 적용하고 원본 계수와 출처는 유지합니다.
+`RIFT_CACHE`로 다운로드 임시 캐시 경로를 지정할 수 있습니다. 각 챔피언 JSON에 현재 공식 데이터 URL, 보관본 URL, 버전, 패치 이력을 남깁니다. 재수집 후 모든 변경 수치를 재검토해야 합니다. `scripts/reconciled/source-revisions.json`은 검토한 KO/EN 입력의 지문을 고정합니다. 입력이 바뀌면 `build_reconciled.py`가 거부합니다. 새 패치를 실제로 검토한 후에만 버전·날짜·생성기를 갱신하고 `python scripts/build_reconciled.py --record-review`로 검토 지문을 기록합니다. 26.23 검토 원본은 `scripts/reconciled/updates-26.23.json`에, 26.22 변경과 과거 누락 사항의 검토 원본은 `scripts/reconciled/updates-26.22.json`에 있습니다. `RIFT_REFRESH_FROM=25.15`로 해당 패치 이후 문서를 재수집할 수 있습니다. 수집기는 검증값을 자동으로 최신이라고 바꾸지 않습니다. 새 패치가 추가되면 URL 형식과 HTML 파싱 결과도 검토해야 합니다. 영어 수집기는 한국어 목록에 저장된 버전을 사용하며, 영어와 한국어 문서의 수집 범위·기록 수는 다를 수 있습니다. `scripts/locales/ko-exact.json` 및 번역 생성기의 용어 사전도 신규 항목에 맞게 검토해야 합니다. 번역은 표시 문구에만 적용하고 원본 계수와 출처는 유지합니다.
 
 ## 검증
 
@@ -80,7 +86,7 @@ node --check dist/app.js
 RIFT_JSDOM=/absolute/path/to/jsdom node scripts/verify.cjs
 RIFT_JSDOM=/absolute/path/to/jsdom node scripts/verify_localization.cjs
 python scripts/verify_data.py
-# 26.21 추가 패치 및 26.22 스냅샷 대조
+# 26.21 추가 패치 및 26.22·26.23 스냅샷 대조
 RIFT_JSDOM=/absolute/path/to/jsdom node scripts/verify_latest_patch.cjs
 ```
 

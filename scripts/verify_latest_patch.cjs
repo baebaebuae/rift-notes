@@ -6,10 +6,10 @@ const values=(id,slot)=>data('en/'+id+'.json').details.skills[slot].rows.map(r=>
 async function main(){
  for(const language of ['ko','en']){
   const prefix=language==='en'?'en/':'',index=data(prefix+'index.json'),found={};
-  assert.equal(index.meta.patch,'26.22');assert.equal(index.meta.version,'16.22.1');assert.deepEqual(index.meta.failures,[]);
+  assert.equal(index.meta.patch,'26.23');assert.equal(index.meta.version,'16.23.1');assert.deepEqual(index.meta.failures,[]);
   for(const champion of index.champions){
    const c=data(prefix+champion.id+'.json'),entries=c.history.filter(h=>h.patch==='26.21');
-   if(entries.length){assert.equal(entries.length,champion.id==='Varus'?2:1,champion.id+' latest entries');found[champion.id]=entries.reduce((n,h)=>n+h.changes.length,0);assert(['26.22','26.21'].includes(c.history[0].patch));}
+   if(entries.length){assert.equal(entries.length,champion.id==='Varus'?2:1,champion.id+' latest entries');found[champion.id]=entries.reduce((n,h)=>n+h.changes.length,0);assert(['26.23','26.22','26.21'].includes(c.history[0].patch));}
    assert.equal(c.details.version,index.meta.version);assert.equal(c.details.patch,index.meta.patch);assert.deepEqual(Object.keys(c.details.skills).sort(),['E','P','Q','R','W']);
    for(const [slot,skill] of Object.entries(c.details.skills))for(const row of skill.rows){assert(row.attribute&&row.value,champion.id+slot);if(row.provenance!=='baseline')assert(row.sources.length,champion.id+slot+' source');}
   }
@@ -41,6 +41,32 @@ async function main(){
     }
    }
   }
+  const patch23 = {Annie:3,Azir:2,Bard:1,Ezreal:2,Galio:1,Gnar:2,KSante:3,Leblanc:1,MasterYi:2,Mel:4,Syndra:2,Velkoz:1,Vi:1};
+  const recorded23 = {};
+  for (const entry of index.champions) {
+   const c = data(prefix+entry.id+'.json');
+   const events = c.history.filter(h=>h.patch==='26.23');
+   if (!events.length) continue;
+   assert.equal(events.length,1);
+   assert.equal(events[0],c.history[0]);
+   assert.equal(events[0].date,'2026-11-17');
+   assert.equal(entry.latestPatch,'26.23');
+   recorded23[c.id]=events[0].changes.length;
+  }
+  assert.deepEqual(recorded23,patch23);
+  await page.select('Azir');
+  assert.equal(page.$$('.stat-value').at(-1).textContent,'550');
+  assert.match(page.$('article[data-skill="W"]').textContent,/67%/);
+  await page.select('Gnar');
+  const gnarQ=page.$('article[data-skill="Q"]').textContent;
+  for(const ratio of ['135%','150%','67.5%'])assert(gnarQ.includes(ratio));
+  await page.select('Galio');
+  for(const slot of ['W','R'])assert.match(page.$('article[data-skill="'+slot+'"]').textContent,/8 \/ 11 \/ 14 \/ 17 \/ 20%/);
+  await page.select('Syndra');
+  assert.match(page.$('article[data-skill="E"] .spell-meta').textContent,/17\/16.5\/16\/15.5\/15/);
+  assert.equal(page.$('article[data-skill="E"] .spell-meta div:last-child b').textContent,'60');
+  await page.select('KSante');
+  assert.equal(page.$('article[data-skill="W"] .spell-meta div:last-child b').textContent,'45');
   await page.select('Darius');assert(page.$('article[data-skill="Q"] .spell-meta').textContent.includes('9/8/7/6/4'));assert(!page.$('article[data-skill="Q"]').textContent.includes('9/7.75/6.5/5.25/4'));
   const distanceRows=slot=>page.$$('article[data-skill="'+slot+'"] .spell-range').map(row=>[
    row.querySelector('.flabel').textContent,row.querySelector('.formula-value').textContent
@@ -65,7 +91,7 @@ async function main(){
   await page.select('Mel');
   assert.equal(page.$('article[data-skill="W"] .spell-meta div:last-child b').textContent,'100/80/60/40/0');
   assert(!page.$('article[data-skill="W"]').textContent.includes('100/75/50/25/0'));
-  assert.match(page.$('article[data-skill="Q"]').textContent,/85[~–]285/);
+  assert.match(page.$('article[data-skill="Q"]').textContent,/90 \/ 126 \/ 172 \/ 228 \/ 294/);
   assert.match(page.$('article[data-skill="W"] .spell-meta').textContent,/30\/28.5\/27\/25.5\/24/);
   assert.equal(data(prefix+'Mel.json').effectiveStats.attackspeedperlevel,2.75);
   assert(!data(prefix+'Mel.json').statConflicts.some(c=>c.field==='attackspeed'));
@@ -93,6 +119,6 @@ async function main(){
  assert.equal(data('en/Viego.json').details.skills.R.rows.find(r=>r.attribute==='Base AD damage').provenance,'derived');
  assert.match(values('Viktor','R'),/270% AP/);
  assert.match(values('Locke','Q'),/63 \/ 92.4 \/ 121.8 \/ 151.2 \/ 180.6/);
- console.log('PASS: 26.22 14 champions, 44 changes; release kits; Mel cost conflict; 173 champions / 865 skills in KO+EN; 26.21 58 changes including October 22 hotfix; independent damage fixtures; clean skill cards; Darius/stat conflicts; rework gaps; expanded values and range placeholders.');
+ console.log('PASS: 26.23 13 champions, 25 changes; 26.22 14 champions, 44 changes; release kits; Mel cost conflict; 173 champions / 865 skills in KO+EN; 26.21 58 changes including October 22 hotfix; independent damage fixtures; clean skill cards; Darius/stat conflicts; rework gaps; expanded values and range placeholders.');
 }
 main().catch(e=>{console.error(e);process.exitCode=1}).finally(closeAll);

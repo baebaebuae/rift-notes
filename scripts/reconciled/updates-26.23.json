@@ -1,0 +1,798 @@
+{
+  "Annie": {
+    "R": {
+      "drop": [],
+      "rows": [
+        {
+          "attribute": {
+            "en": "Tibbers health",
+            "ko": "티버 체력"
+          },
+          "value": {
+            "en": "1275–4000 (by champion level) + 50% AP + 150% bonus health",
+            "ko": "1275~4000 (챔피언 레벨에 따라) + 주문력의 50% + 추가 체력의 150%"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-annie"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "en": "Tibbers aura damage per second",
+            "ko": "티버 오라 초당 피해량"
+          },
+          "value": {
+            "en": "10 / 15 / 20 + 4% AP",
+            "ko": "10 / 15 / 20 + 4% AP"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-annie"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "en": "Tibbers attack damage",
+            "ko": "티버 기본 공격 피해량"
+          },
+          "value": {
+            "en": "30 / 50 / 70 + 10% AP",
+            "ko": "30 / 50 / 70 + 10% AP"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-annie"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "Azir": {
+    "W": {
+      "drop": [],
+      "rows": [
+        {
+          "attribute": {
+            "en": "On-hit and on-attack damage effectiveness",
+            "ko": "모래 병사의 적중 시·공격 시 피해 적용률"
+          },
+          "value": {
+            "en": "67%",
+            "ko": "67%"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-azir"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "Bard": {
+    "Q": {
+      "drop": [
+        "Magic Damage"
+      ],
+      "rows": [
+        {
+          "attribute": {
+            "en": "Magic Damage",
+            "ko": "마법 피해량"
+          },
+          "value": {
+            "en": "80 / 125 / 170 / 215 / 260 + 100% AP",
+            "ko": "80 / 125 / 170 / 215 / 260 + 100% AP"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-bard"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "Ezreal": {
+    "W": {
+      "drop": [
+        "Bonus Magic Damage"
+      ],
+      "rows": [
+        {
+          "attribute": {
+            "en": "Bonus Magic Damage",
+            "ko": "추가 마법 피해량"
+          },
+          "value": {
+            "en": "80 / 135 / 190 / 245 / 300 + 115% bonus AD + 100% AP",
+            "ko": "80 / 135 / 190 / 245 / 300 + 추가 공격력의 115% + 주문력의 100%"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-ezreal"
+            }
+          ]
+        }
+      ]
+    },
+    "R": {
+      "drop": [
+        "Magic Damage"
+      ],
+      "rows": [
+        {
+          "attribute": {
+            "en": "Champion damage",
+            "ko": "챔피언 대상 피해량"
+          },
+          "value": {
+            "en": "350 / 600 / 850 + 110% bonus AD + 120% AP",
+            "ko": "350 / 600 / 850 + 추가 공격력의 110% + 주문력의 120%"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-ezreal"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "Galio": {
+    "W": {
+      "drop": [
+        "Magic Shield Strength"
+      ],
+      "rows": [
+        {
+          "attribute": {
+            "en": "Magic Shield Strength",
+            "ko": "마법 피해 보호막 흡수량"
+          },
+          "value": {
+            "en": "8 / 11 / 14 / 17 / 20% of Galio’s maximum health",
+            "ko": "갈리오 최대 체력의 8 / 11 / 14 / 17 / 20%"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-galio"
+            }
+          ]
+        }
+      ]
+    },
+    "R": {
+      "drop": [],
+      "rows": [
+        {
+          "attribute": {
+            "en": "Ally magic shield (by W rank)",
+            "ko": "아군 마법 피해 보호막 (W 랭크 기준)"
+          },
+          "value": {
+            "en": "8 / 11 / 14 / 17 / 20% of Galio’s maximum health",
+            "ko": "갈리오 최대 체력의 8 / 11 / 14 / 17 / 20%"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-galio"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "Gnar": {
+    "Q": {
+      "drop": [
+        "Boomerang Throw · Physical Damage",
+        "Boulder Toss · Physical Damage",
+        "Boomerang Throw · Reduced Damage"
+      ],
+      "rows": [
+        {
+          "attribute": {
+            "en": "Boomerang Throw · Physical Damage",
+            "ko": "부메랑 던지기 · 물리 피해량"
+          },
+          "value": {
+            "en": "5 / 45 / 85 / 125 / 165 + 135% AD",
+            "ko": "5 / 45 / 85 / 125 / 165 + 135% AD"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-gnar"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "en": "Boulder Toss · Physical Damage",
+            "ko": "돌덩이 던지기 · 물리 피해량"
+          },
+          "value": {
+            "en": "45 / 90 / 135 / 180 / 225 + 150% AD",
+            "ko": "45 / 90 / 135 / 180 / 225 + 150% AD"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-gnar"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "en": "Boomerang Throw · Subsequent targets",
+            "ko": "부메랑 던지기 · 두 번째 대상부터"
+          },
+          "value": {
+            "en": "2.5 / 22.5 / 42.5 / 62.5 / 82.5 + 67.5% AD",
+            "ko": "2.5 / 22.5 / 42.5 / 62.5 / 82.5 + 67.5% AD"
+          },
+          "provenance": "derived",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-gnar"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "KSante": {
+    "W": {
+      "drop": [
+        "Mana Cost",
+        "Physical Damage",
+        "Minimum Bonus True Damage",
+        "Maximum Bonus True Damage",
+        "Total Maximum Mixed Damage"
+      ],
+      "rows": [
+        {
+          "attribute": {
+            "en": "Mana Cost",
+            "ko": "마나 소모량"
+          },
+          "value": {
+            "en": "45",
+            "ko": "45"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-ksante"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "en": "Physical Damage",
+            "ko": "물리 피해량"
+          },
+          "value": {
+            "en": "45 / 85 / 125 / 165 / 205 + (8% + 2% per 100 bonus armor + 2% per 100 bonus magic resistance) of target maximum health",
+            "ko": "45 / 85 / 125 / 165 / 205 + 대상 최대 체력 × (8% + 추가 방어력 100당 2% + 추가 마법 저항력 100당 2%)"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-ksante"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "en": "Minimum Bonus True Damage",
+            "ko": "최소 추가 고정 피해량"
+          },
+          "value": {
+            "en": "4.5 / 8.5 / 12.5 / 16.5 / 20.5 + (0.8% + 0.2% per 100 bonus armor + 0.2% per 100 bonus magic resistance) of target maximum health",
+            "ko": "4.5 / 8.5 / 12.5 / 16.5 / 20.5 + 대상 최대 체력 × (0.8% + 추가 방어력 100당 0.2% + 추가 마법 저항력 100당 0.2%)"
+          },
+          "provenance": "derived",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-ksante"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "en": "Maximum Bonus True Damage",
+            "ko": "최대 추가 고정 피해량"
+          },
+          "value": {
+            "en": "33.75 / 63.75 / 93.75 / 123.75 / 153.75 + (6% + 1.5% per 100 bonus armor + 1.5% per 100 bonus magic resistance) of target maximum health",
+            "ko": "33.75 / 63.75 / 93.75 / 123.75 / 153.75 + 대상 최대 체력 × (6% + 추가 방어력 100당 1.5% + 추가 마법 저항력 100당 1.5%)"
+          },
+          "provenance": "derived",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-ksante"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "en": "Total Maximum Mixed Damage",
+            "ko": "최대 충전 시 총 혼합 피해량"
+          },
+          "value": {
+            "en": "78.75 / 148.75 / 218.75 / 288.75 / 358.75 + (14% + 3.5% per 100 bonus armor + 3.5% per 100 bonus magic resistance) of target maximum health",
+            "ko": "78.75 / 148.75 / 218.75 / 288.75 / 358.75 + 대상 최대 체력 × (14% + 추가 방어력 100당 3.5% + 추가 마법 저항력 100당 3.5%)"
+          },
+          "provenance": "derived",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-ksante"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "en": "All Out bonus true damage",
+            "ko": "총공세 추가 고정 피해"
+          },
+          "value": {
+            "en": "10–75% of physical damage, based on charge time",
+            "ko": "충전 시간에 따라 물리 피해량의 10~75%"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-ksante"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "Leblanc": {
+    "Q": {
+      "drop": [
+        "Magic Damage",
+        "Total Magic Damage"
+      ],
+      "rows": [
+        {
+          "attribute": {
+            "en": "Initial hit or mark detonation",
+            "ko": "최초 적중 또는 표식 폭발"
+          },
+          "value": {
+            "en": "65 / 90 / 115 / 140 / 165 + 35% AP",
+            "ko": "65 / 90 / 115 / 140 / 165 + 35% AP"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-leblanc"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "en": "Total Magic Damage",
+            "ko": "최초 적중과 표식 폭발 합계"
+          },
+          "value": {
+            "en": "130 / 180 / 230 / 280 / 330 + 70% AP",
+            "ko": "130 / 180 / 230 / 280 / 330 + 70% AP"
+          },
+          "provenance": "derived",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-leblanc"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "MasterYi": {
+    "Q": {
+      "drop": [
+        "Primary Physical Damage",
+        "Maximum Single-Target Damage",
+        "Reduced Damage per hit",
+        "Combined Primary Monster Damage",
+        "Reduced Monster Damage per hit",
+        "Max Single-Target Monster Damage"
+      ],
+      "rows": [
+        {
+          "attribute": {
+            "en": "Primary Physical Damage",
+            "ko": "첫 타격 피해량"
+          },
+          "value": {
+            "en": "20 / 40 / 60 / 80 / 100 + 60% AD",
+            "ko": "20 / 40 / 60 / 80 / 100 + 60% AD"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-masteryi"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "en": "Maximum Single-Target Damage",
+            "ko": "단일 대상 최대 피해량"
+          },
+          "value": {
+            "en": "35 / 70 / 105 / 140 / 175 + 105% AD",
+            "ko": "35 / 70 / 105 / 140 / 175 + 105% AD"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-masteryi"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "en": "Reduced Damage per hit",
+            "ko": "같은 대상 후속 타격당 피해량"
+          },
+          "value": {
+            "en": "5 / 10 / 15 / 20 / 25 + 15% AD",
+            "ko": "5 / 10 / 15 / 20 / 25 + 15% AD"
+          },
+          "provenance": "derived",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-masteryi"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "en": "Combined Primary Monster Damage",
+            "ko": "몬스터 대상 첫 타격 피해량"
+          },
+          "value": {
+            "en": "80 / 125 / 170 / 215 / 260 + 60% AD",
+            "ko": "80 / 125 / 170 / 215 / 260 + 60% AD"
+          },
+          "provenance": "derived",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-masteryi"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "en": "Reduced Monster Damage per hit",
+            "ko": "같은 몬스터 후속 타격당 피해량"
+          },
+          "value": {
+            "en": "20 / 31.25 / 42.5 / 53.75 / 65 + 15% AD",
+            "ko": "20 / 31.25 / 42.5 / 53.75 / 65 + 15% AD"
+          },
+          "provenance": "derived",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-masteryi"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "en": "Max Single-Target Monster Damage",
+            "ko": "단일 몬스터 최대 피해량"
+          },
+          "value": {
+            "en": "140 / 218.75 / 297.5 / 376.25 / 455 + 105% AD",
+            "ko": "140 / 218.75 / 297.5 / 376.25 / 455 + 105% AD"
+          },
+          "provenance": "derived",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-masteryi"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "Mel": {
+    "Q": {
+      "drop": [
+        "Damage per subsequent hit",
+        "Total damage if all bolts hit"
+      ],
+      "rows": [
+        {
+          "attribute": {
+            "en": "Damage per subsequent hit",
+            "ko": "후속 적중당 피해량"
+          },
+          "value": {
+            "en": "6 / 11 / 16 / 21 / 26 + 9% AP",
+            "ko": "6 / 11 / 16 / 21 / 26 + 9% AP"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-mel"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "en": "Total damage if all bolts hit",
+            "ko": "모두 적중 시 총 피해량"
+          },
+          "value": {
+            "en": "90 / 126 / 172 / 228 / 294 + 70 / 79 / 88 / 97 / 106% AP",
+            "ko": "90 / 126 / 172 / 228 / 294 + 70 / 79 / 88 / 97 / 106% AP"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-mel"
+            }
+          ]
+        }
+      ]
+    },
+    "W": {
+      "drop": [
+        "Shield for Mel and allies",
+        "First retaliation damage",
+        "Maximum retaliations per enemy"
+      ],
+      "rows": [
+        {
+          "attribute": {
+            "en": "Shield for Mel and allies",
+            "ko": "멜·아군 보호막"
+          },
+          "value": {
+            "en": "50 / 90 / 130 / 170 / 210 + 50% AP for 2 seconds",
+            "ko": "50 / 90 / 130 / 170 / 210 + 주문력의 50% · 2초"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-mel"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "en": "First retaliation damage",
+            "ko": "첫 반격 피해량"
+          },
+          "value": {
+            "en": "35 / 45 / 55 / 65 / 75 + 10% AP",
+            "ko": "35 / 45 / 55 / 65 / 75 + 10% AP"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-mel"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "en": "Maximum retaliations per enemy",
+            "ko": "대상당 최대 반격"
+          },
+          "value": {
+            "en": "7 hits: 65 / 105 / 145 / 185 / 225 + 40% AP",
+            "ko": "7회 · 총 65 / 105 / 145 / 185 / 225 + 주문력의 40%"
+          },
+          "provenance": "derived",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-mel"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "Syndra": {
+    "E": {
+      "drop": [
+        "Cooldown"
+      ],
+      "rows": [
+        {
+          "attribute": {
+            "en": "Cooldown",
+            "ko": "재사용 대기시간"
+          },
+          "value": {
+            "en": "17 / 16.5 / 16 / 15.5 / 15 seconds",
+            "ko": "17 / 16.5 / 16 / 15.5 / 15초"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-syndra"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "en": "Mana cost",
+            "ko": "마나 소모량"
+          },
+          "value": {
+            "en": "60",
+            "ko": "60"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-syndra"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "Velkoz": {
+    "R": {
+      "drop": [
+        "Maximum Damage",
+        "Damage Per Tick"
+      ],
+      "rows": [
+        {
+          "attribute": {
+            "en": "Maximum Damage",
+            "ko": "최대 피해량"
+          },
+          "value": {
+            "en": "450 / 700 / 950 + 125% AP",
+            "ko": "450 / 700 / 950 + 125% AP"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-velkoz"
+            }
+          ]
+        },
+        {
+          "attribute": {
+            "en": "Damage Per Tick",
+            "ko": "틱당 피해량"
+          },
+          "value": {
+            "en": "34.6154 / 53.8462 / 73.0769 + 9.62% AP",
+            "ko": "34.6154 / 53.8462 / 73.0769 + 9.62% AP"
+          },
+          "provenance": "derived",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-velkoz"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "Vi": {
+    "E": {
+      "drop": [
+        "Physical Damage"
+      ],
+      "rows": [
+        {
+          "attribute": {
+            "en": "Physical Damage",
+            "ko": "물리 피해량"
+          },
+          "value": {
+            "en": "10 / 35 / 60 / 85 / 110 + 110% AD + 100% AP",
+            "ko": "10 / 35 / 60 / 85 / 110 + 110% AD + 100% AP"
+          },
+          "provenance": "patch",
+          "sources": [
+            {
+              "patch": "26.23",
+              "date": "2026-11-17",
+              "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/#patch-vi"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
